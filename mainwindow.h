@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "rick.h"
-
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    void keyPressEvent(QKeyEvent *tecla);
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 

@@ -18,3 +18,15 @@ void rick::Seleccion_rick(int Tipo)
     setPixmap(rick_ind);
 
 }
+
+void rick::actualizarFuerzas(float fuerzaX, float fuerzaY)
+{
+    FuerzaEnX=fuerzaX;
+    FuerzaEnY=fuerzaY;
+}
+
+float rick::saberDatos(int date)
+{
+    if(date==1) return FuerzaEnX;
+    else if(date==2) return FuerzaEnY;
+}

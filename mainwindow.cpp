@@ -2,6 +2,14 @@
 #include "ui_mainwindow.h"
 
 
+void MainWindow::keyPressEvent(QKeyEvent *tecla)
+{
+    if(tecla->key() == Qt::Key_D){
+       rick->
+    }
+
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
