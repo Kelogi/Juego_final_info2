@@ -14,6 +14,18 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)-2.0,personajeRick->saberDatos(1));
     }
 
+    if(tecla->key() == Qt::Key_Space){
+        personajeRick->actualizarFuerzas(0,personajeRick->saberDatos(1));
+        personajeRick->Seleccion_rick(4);
+        diamond=new diamante();
+        diamond->seleccion_diamante(0);
+        diamond->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
+        diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
+        escena->addItem(diamond);
+    }
+
+
+
 }
 
 MainWindow::MainWindow(QWidget *parent)
@@ -31,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     personajeRick->Seleccion_rick(4);
-    personajeRick->setPos(0,200);
+    personajeRick->setPos(0,300);
     escena->addItem(personajeRick);
 
     ui->pantalla->setScene(escena);
@@ -41,4 +53,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete escena;
+    delete personajeRick;
+    delete diamond;
 }

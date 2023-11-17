@@ -50,6 +50,8 @@ float rick::saberDatos(int date)
 {
     if(date==0) return FuerzaEnX;
     else if(date==1) return FuerzaEnY;
+    else if (date==2) return Posicion_X;
+    else if(date==3) return posicion_Y;
 }
 
 void rick::Mover_derecha()

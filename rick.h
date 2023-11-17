@@ -24,14 +24,17 @@ private:
     QPixmap Imagen_rick;
     QTimer *TimerRick;
     QPixmap rick_ind;
-    //pueden ser macros----
+    //Para moverme en los pixeles de los sprites de rick
     int size_spritex=188;
     int size_spritey=210;
+    //==============================
+
+
     int spriteMovDerecha=5;
     int spriteMovIzquierda=0;
     //======================
 
-    float Aceleracion_X=0,Velocidad_X=0,Posicion_X, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
+    float Aceleracion_X=0,Velocidad_X=0,Posicion_X, posicion_Y=300, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
 
 };
 

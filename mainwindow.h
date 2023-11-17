@@ -25,5 +25,6 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene *escena;
     rick *personajeRick;
+    diamante *diamond;
 };
 #endif // MAINWINDOW_H
