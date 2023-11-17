@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
+#include <QGraphicsScene>
 
 class diamante:  public QObject, public QGraphicsPixmapItem
 {
@@ -16,6 +17,7 @@ public:
     diamante();
     void cargarPos_Inicial(int x, int y);
     void seleccion_diamante(int tipo);
+    void obtenerEscena_Diamante(QGraphicsScene *escenita);
 
 
 private:

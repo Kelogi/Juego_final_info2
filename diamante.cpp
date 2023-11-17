@@ -1,5 +1,6 @@
 #include "diamante.h"
 
+
 void diamante::CicloAutomatico_diamante()
 {
     t=k*n*T;
@@ -11,8 +12,7 @@ void diamante::CicloAutomatico_diamante()
     }
 
     else{
-        this->setX(0);
-        this->setY(0);
+        escenaDiamante->removeItem(this);
     }
     n+=1.0;
 }
@@ -39,4 +39,9 @@ void diamante::seleccion_diamante(int tipo)
     if(tipo<4) Diamante_ind=Imagen_diamantes.copy(size_spritex*tipo, 0, size_spritex, size_spritey).scaled(15,15);
     else Diamante_ind=Imagen_diamantes.copy(size_spritex*(tipo-4),  size_spritey, size_spritex, size_spritey).scaled(15,15);
     setPixmap(Diamante_ind);
+}
+
+void diamante::obtenerEscena_Diamante(QGraphicsScene *escenita)
+{
+    escenaDiamante=escenita;
 }

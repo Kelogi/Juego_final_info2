@@ -22,6 +22,8 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         diamond->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
         diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
         escena->addItem(diamond);
+        //se carga la escena en la clase diamante
+        diamond->obtenerEscena_Diamante(escena);
     }
 
 
