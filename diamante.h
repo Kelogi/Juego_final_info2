@@ -25,7 +25,8 @@ private:
     int posInicialX;
     int posInicialY;
     int posicionX,posicionY;
-    float k=2.5, n=0.0, T=0.01, g=9.8, Vxo=45.0,Vyo=30.0, t;
+    float k=4, n=0.0, T=0.01, g=9.8, Vxo=45.0,Vyo=30.0, t;
+    QGraphicsScene *escenaDiamante; //recibir la escena del juego en la clase diamante
     //Para moverme en los pixeles de los sprites de rick
     int size_spritex=51;
     int size_spritey=38;

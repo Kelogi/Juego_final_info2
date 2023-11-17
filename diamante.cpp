@@ -5,8 +5,15 @@ void diamante::CicloAutomatico_diamante()
     t=k*n*T;
     posicionX=posInicialX+Vxo*t;
     posicionY=posInicialY-Vyo*t+0.5*g*t*t;
-    this->setX(posicionX);
-    this->setY(posicionY);
+    if(posicionY<=300+60){
+        this->setX(posicionX);
+        this->setY(posicionY);
+    }
+
+    else{
+        this->setX(0);
+        this->setY(0);
+    }
     n+=1.0;
 }
 
