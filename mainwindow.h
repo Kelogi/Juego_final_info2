@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include "rick.h"
+#include "diamante.h"
 #include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
