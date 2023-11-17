@@ -8,7 +8,7 @@
 class rick : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
-public slots:
+private slots:
     void CicloAutomatico_Rick();
 
 public:
@@ -17,6 +17,8 @@ public:
     //actualizar fuerza en un instante
     void actualizarFuerzas(float fuerzaX, float fuerzaY);
     float saberDatos(int date);
+    void Mover_derecha();
+    void Mover_izquierda();
 
 private:
     QPixmap Imagen_rick;
@@ -25,9 +27,11 @@ private:
     //pueden ser macros----
     int size_spritex=188;
     int size_spritey=210;
+    int spriteMovDerecha=5;
+    int spriteMovIzquierda=0;
     //======================
 
-    float Aceleracion_X=0,Velocidad_X=0,Posicion_X, masa=200, FuerzaEnX=0,FuerzaEnY, T=100, friccionX;
+    float Aceleracion_X=0,Velocidad_X=0,Posicion_X, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
 
 };
 

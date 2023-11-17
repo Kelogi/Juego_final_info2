@@ -9,7 +9,7 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)+2.0,personajeRick->saberDatos(1));
     }
 
-    if(tecla->key() == Qt::Key_D){
+    if(tecla->key() == Qt::Key_A){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)-2.0,personajeRick->saberDatos(1));
     }
@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     //Creamos la escena.
     escena=new  QGraphicsScene;
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
-    personajeRick=new rick;
+    personajeRick=new rick();
 
 
     personajeRick->Seleccion_rick(4);
