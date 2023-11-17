@@ -5,7 +5,13 @@
 void MainWindow::keyPressEvent(QKeyEvent *tecla)
 {
     if(tecla->key() == Qt::Key_D){
-       rick->
+        //actualizar fuerza en esa direccion
+        personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)+2.0,personajeRick->saberDatos(1));
+    }
+
+    if(tecla->key() == Qt::Key_D){
+        //actualizar fuerza en esa direccion
+        personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)-2.0,personajeRick->saberDatos(1));
     }
 
 }
