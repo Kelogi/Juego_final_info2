@@ -6,7 +6,7 @@ void diamante::CicloAutomatico_diamante()
     t=k*n*T;
     posicionX=posInicialX+Vxo*t;
     posicionY=posInicialY-Vyo*t+0.5*g*t*t;
-    if(posicionY<=300+60){
+    if(posicionY<=300+60){ //diamante toca el suelo
         this->setX(posicionX);
         this->setY(posicionY);
     }

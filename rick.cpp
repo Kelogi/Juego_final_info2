@@ -2,7 +2,7 @@
 
 void rick::CicloAutomatico_Rick()
 {
-    //Aplicar las leyes de la dinamica al personaje Rick:
+    //Aplicar las leyes de la dinamica al personaje Rick en direccion del eje X:
     Aceleracion_X = FuerzaEnX/masa;
     Velocidad_X = Aceleracion_X*T;
     //Se actuliza la nueva posicion en X de Rick
@@ -16,6 +16,20 @@ void rick::CicloAutomatico_Rick()
         else  FuerzaEnX+=friccionX;
      }
     else Seleccion_rick(4);
+
+    //Aplicar las leyes de la dinamica al personaje Rick en direcicno del eje Y
+    if(salto==true){
+        t=k*n*TY;
+        posicion_Y=300-Vyo*t+0.5*g*t*t;
+
+        if(posicion_Y<=300)this->setY(posicion_Y);
+        else {
+            salto=false;
+            setY(300);
+            n=0.0;
+        }
+        n+=1.0;
+    }
 }
 
 rick::rick()
@@ -77,4 +91,15 @@ void rick::Mover_izquierda()
     spriteMovIzquierda++;
     //se actualiza la posicion de Rick
     this->setX(Posicion_X);
+}
+
+void rick::Rick_salto()
+{
+    FuerzaEnX=0;
+    salto=true;
+}
+
+bool rick::saberSalta_Rick()
+{
+    return salto;
 }

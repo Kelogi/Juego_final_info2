@@ -19,6 +19,8 @@ public:
     float saberDatos(int date);
     void Mover_derecha();
     void Mover_izquierda();
+    void Rick_salto();
+    bool saberSalta_Rick();
 
 private:
     QPixmap Imagen_rick;
@@ -34,7 +36,9 @@ private:
     int spriteMovIzquierda=0;
     //======================
 
-    float Aceleracion_X=0,Velocidad_X=0,Posicion_X, posicion_Y=300, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
+    float n=0.0, k=5.0,TY=0.1, g=9.8,Vyo=30.0, t, posicion_Y=300;
+    float Aceleracion_X=0,Velocidad_X=0,Posicion_X=0, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
+    bool salto=false;
 
 };
 

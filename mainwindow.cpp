@@ -4,14 +4,21 @@
 
 void MainWindow::keyPressEvent(QKeyEvent *tecla)
 {
-    if(tecla->key() == Qt::Key_D){
+    if(tecla->key() == Qt::Key_D and personajeRick->saberSalta_Rick()==false){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)+2.0,personajeRick->saberDatos(1));
     }
 
-    if(tecla->key() == Qt::Key_A){
+    if(tecla->key() == Qt::Key_A and personajeRick->saberSalta_Rick()==false){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)-2.0,personajeRick->saberDatos(1));
+    }
+
+    //rick salta
+
+    if(tecla->key() == Qt::Key_W and personajeRick->saberSalta_Rick()==false){
+        //actualizar fuerza en esa direccion
+        personajeRick->Rick_salto();
     }
 
     if(tecla->key() == Qt::Key_Space){
