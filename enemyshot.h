@@ -4,19 +4,29 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QGraphicsScene>
+#include "diamante.h"
 
 class enemyshot: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 private slots:
+    void EnemyshotActivo();
 
 public:
     enemyshot();
     void seleccion_Enemyshot(int tipo);
+    void obtener_Escena_Enemyshot(QGraphicsScene *escenita);
+    void cargarPosicion_Enemyshot(int x, int y);
+    int posicionX_Enemyshot();
+    int posicionY_Enemyshot();
+
 private:
     QPixmap Imagenes_enemyshot;
     QPixmap enemyshot_ind;
     QTimer *TimerEnemyActivo;
+    int sprite_Enemyshot=0;
+    diamante *diamondEnemyShot;
+    QGraphicsScene *escenaEnemyshot;
 
     int posicionX;
     int posicionY;
