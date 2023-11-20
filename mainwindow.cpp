@@ -22,6 +22,8 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
     }
 
     if(tecla->key() == Qt::Key_Space){
+
+
         personajeRick->actualizarFuerzas(0,personajeRick->saberDatos(1));
         personajeRick->Seleccion_rick(4);
         diamond=new diamante();
@@ -56,6 +58,13 @@ MainWindow::MainWindow(QWidget *parent)
     escena->addItem(personajeRick);
 
     ui->pantalla->setScene(escena);
+
+    //pruebaaaaa
+    enemigo1=new enemyshot();
+    enemigo1->seleccion_Enemyshot(0);
+    enemigo1->setPos(500,200);
+    escena->addItem(enemigo1);
+
 }
 
 MainWindow::~MainWindow()

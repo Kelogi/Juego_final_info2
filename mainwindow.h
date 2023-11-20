@@ -6,6 +6,7 @@
 #include <QTimer>
 #include "rick.h"
 #include "diamante.h"
+#include "enemyshot.h"
 #include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
@@ -26,5 +27,6 @@ private:
     QGraphicsScene *escena;
     rick *personajeRick;
     diamante *diamond;
+    enemyshot *enemigo1;
 };
 #endif // MAINWINDOW_H
