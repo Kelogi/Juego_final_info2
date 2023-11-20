@@ -23,10 +23,11 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
 
     if(tecla->key() == Qt::Key_Space){
 
-
         personajeRick->actualizarFuerzas(0,personajeRick->saberDatos(1));
         personajeRick->Seleccion_rick(4);
         diamond=new diamante();
+        diamond->Cargar_Vxo_movimiento(45);
+        diamond->Cargar_Vyo_movimiento(30);
         diamond->seleccion_diamante(0);
         diamond->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
         diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
@@ -62,7 +63,9 @@ MainWindow::MainWindow(QWidget *parent)
     //pruebaaaaa
     enemigo1=new enemyshot();
     enemigo1->seleccion_Enemyshot(0);
+    enemigo1->cargarPosicion_Enemyshot(500,200);
     enemigo1->setPos(500,200);
+    enemigo1->obtener_Escena_Enemyshot(escena);
     escena->addItem(enemigo1);
 
 }

@@ -46,3 +46,13 @@ void diamante::obtenerEscena_Diamante(QGraphicsScene *escenita)
 {
     escenaDiamante=escenita;
 }
+
+void diamante::Cargar_Vxo_movimiento(int Vx)
+{
+    Vxo=Vx;
+}
+
+void diamante::Cargar_Vyo_movimiento(int Vy)
+{
+    Vyo=Vy;
+}

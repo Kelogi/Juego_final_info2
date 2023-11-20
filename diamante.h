@@ -18,7 +18,8 @@ public:
     void cargarPos_Inicial(int x, int y);
     void seleccion_diamante(int tipo);
     void obtenerEscena_Diamante(QGraphicsScene *escenita);
-
+    void Cargar_Vxo_movimiento(int Vx);
+    void Cargar_Vyo_movimiento(int Vy);
 
 private:
     QPixmap Imagen_diamantes;
@@ -27,7 +28,8 @@ private:
     int posInicialX;
     int posInicialY;
     int posicionX,posicionY;
-    float k=4, n=0.0, T=0.01, g=9.8, Vxo=45.0,Vyo=30.0, t;
+    float k=4, n=0.0, T=0.01, g=9.8, t;
+    int Vxo,Vyo;
     QGraphicsScene *escenaDiamante; //recibir la escena del juego en la clase diamante
     //Para moverme en los pixeles de los sprites de rick
     int size_spritex=51;

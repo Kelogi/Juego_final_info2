@@ -5,6 +5,10 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include "diamante.h"
+//para generar las velocidades de los disparos al azar
+#include <stdlib.h>
+#include <time.h>
+
 
 class enemyshot: public QObject, public QGraphicsPixmapItem
 {

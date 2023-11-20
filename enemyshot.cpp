@@ -2,17 +2,23 @@
 
 void enemyshot::EnemyshotActivo()
 {
+
     if(sprite_Enemyshot==4){
+
+        srand(time(NULL));
+        int Vx_azar=20+rand()%(60-20);
+        int Vy_azar=20+rand()%(60-20);
          //Se escogio en el sprite 3 el enemyshot siempre lanza una bala
         diamondEnemyShot=new diamante();
+        diamondEnemyShot->Cargar_Vxo_movimiento(-Vx_azar);
+        diamondEnemyShot->Cargar_Vyo_movimiento(Vy_azar);
 
         diamondEnemyShot->seleccion_diamante(0);
-        diamondEnemyShot->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
-        diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
-        escena->addItem(diamond);
+        diamondEnemyShot->cargarPos_Inicial(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);
+        diamondEnemyShot->setPos(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);
+        escenaEnemyshot->addItem(diamondEnemyShot);
         //se carga la escena en la clase diamante
-        diamond->obtenerEscena_Diamante(escena);
-
+        diamondEnemyShot->obtenerEscena_Diamante(escenaEnemyshot);
         sprite_Enemyshot=0;
     }
     else{
@@ -27,9 +33,9 @@ enemyshot::enemyshot()
     Imagenes_enemyshot.load(":/imagenes/Sprite-enemyshot.png");
     setPos(0, 0);
 
-    /*TimerDiamante= new QTimer(this);
-    connect(TimerDiamante, SIGNAL(timeout()), this, SLOT(CicloAutomatico_diamante()));
-    TimerDiamante->start(1000*T);*/
+    TimerEnemyActivo= new QTimer(this);
+    connect(TimerEnemyActivo, SIGNAL(timeout()), this, SLOT(EnemyshotActivo()));
+    TimerEnemyActivo->start(400);
 
 }
 
@@ -42,6 +48,12 @@ void enemyshot::seleccion_Enemyshot(int tipo)
 void enemyshot::obtener_Escena_Enemyshot(QGraphicsScene *escenita)
 {
     escenaEnemyshot=escenita;
+}
+
+void enemyshot::cargarPosicion_Enemyshot(int x, int y)
+{
+    posicionX=x;
+    posicionY=y;
 }
 
 int enemyshot::posicionX_Enemyshot()
