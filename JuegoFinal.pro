@@ -10,12 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     diamante.cpp \
+    enemyshot.cpp \
     main.cpp \
     mainwindow.cpp \
     rick.cpp
 
 HEADERS += \
     diamante.h \
+    enemyshot.h \
     mainwindow.h \
     rick.h
 

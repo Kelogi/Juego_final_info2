@@ -79,6 +79,8 @@ void rick::Mover_derecha()
     //se actualiza la posicion de Rick
     this->setX(Posicion_X);
 
+
+
 }
 
 void rick::Mover_izquierda()
@@ -90,7 +92,15 @@ void rick::Mover_izquierda()
 
     spriteMovIzquierda++;
     //se actualiza la posicion de Rick
-    this->setX(Posicion_X);
+    if(Posicion_X>=0){
+        this->setX(Posicion_X);
+    }
+    else{
+
+        this->setX(0);
+        Posicion_X=0;
+        FuerzaEnX=0;
+    }
 }
 
 void rick::Rick_salto()

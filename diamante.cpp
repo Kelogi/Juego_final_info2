@@ -13,6 +13,7 @@ void diamante::CicloAutomatico_diamante()
 
     else{
         escenaDiamante->removeItem(this);
+        delete this;
     }
     n+=1.0;
 }
