@@ -31,6 +31,7 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         diamond->seleccion_diamante(0);
         diamond->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
         diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
+        diamond->obtener_personaje(personajeRick);
         escena->addItem(diamond);
         //se carga la escena en la clase diamante
         diamond->obtenerEscena_Diamante(escena);
@@ -66,6 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
     enemigo1->cargarPosicion_Enemyshot(500,200);
     enemigo1->setPos(500,200);
     enemigo1->obtener_Escena_Enemyshot(escena);
+    enemigo1->obtener_personaje(personajeRick);
     escena->addItem(enemigo1);
 
 }

@@ -3,19 +3,26 @@
 
 void diamante::CicloAutomatico_diamante()
 {
-    t=k*n*T;
-    posicionX=posInicialX+Vxo*t;
-    posicionY=posInicialY-Vyo*t+0.5*g*t*t;
-    if(posicionY<=300+60){ //diamante toca el suelo
-        this->setX(posicionX);
-        this->setY(posicionY);
+    if(personaje_principal->collidesWithItem(this)){
+        personaje_principal->actualizarVidas();
+    }
+    else{
+
+        t=k*n*T;
+        posicionX=posInicialX+Vxo*t;
+        posicionY=posInicialY-Vyo*t+0.5*g*t*t;
+        if(posicionY<=300+60){ //diamante toca el suelo
+            this->setX(posicionX);
+            this->setY(posicionY);
+        }
+
+        else{
+            escenaDiamante->removeItem(this);
+            delete this;
+        }
+        n+=1.0;
     }
 
-    else{
-        escenaDiamante->removeItem(this);
-        delete this;
-    }
-    n+=1.0;
 }
 
 diamante::diamante()
@@ -45,6 +52,11 @@ void diamante::seleccion_diamante(int tipo)
 void diamante::obtenerEscena_Diamante(QGraphicsScene *escenita)
 {
     escenaDiamante=escenita;
+}
+
+void diamante::obtener_personaje(rick *personaje)
+{
+    personaje_principal=personaje;
 }
 
 void diamante::Cargar_Vxo_movimiento(int Vx)

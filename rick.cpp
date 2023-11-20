@@ -60,6 +60,11 @@ void rick::actualizarFuerzas(float fuerzaX, float fuerzaY)
     FuerzaEnY=fuerzaY;
 }
 
+void rick::actualizarVidas()
+{
+    vidas--;
+}
+
 float rick::saberDatos(int date)
 {
     if(date==0) return FuerzaEnX;

@@ -19,6 +19,8 @@ void enemyshot::EnemyshotActivo()
         escenaEnemyshot->addItem(diamondEnemyShot);
         //se carga la escena en la clase diamante
         diamondEnemyShot->obtenerEscena_Diamante(escenaEnemyshot);
+        //Se carga en el diamante la direccion del objeto de la clase rick;
+        diamondEnemyShot->obtener_personaje(personajeRick);
         sprite_Enemyshot=0;
     }
     else{
@@ -48,6 +50,11 @@ void enemyshot::seleccion_Enemyshot(int tipo)
 void enemyshot::obtener_Escena_Enemyshot(QGraphicsScene *escenita)
 {
     escenaEnemyshot=escenita;
+}
+
+void enemyshot::obtener_personaje(rick *personaje)
+{
+    personajeRick=personaje;
 }
 
 void enemyshot::cargarPosicion_Enemyshot(int x, int y)

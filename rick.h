@@ -16,6 +16,7 @@ public:
     void Seleccion_rick(int Tipo);
     //actualizar fuerza en un instante
     void actualizarFuerzas(float fuerzaX, float fuerzaY);
+    void actualizarVidas();
     float saberDatos(int date);
     void Mover_derecha();
     void Mover_izquierda();
@@ -23,6 +24,7 @@ public:
     bool saberSalta_Rick();
 
 private:
+    int vidas=10;
     QPixmap Imagen_rick;
     QTimer *TimerRick;
     QPixmap rick_ind;
