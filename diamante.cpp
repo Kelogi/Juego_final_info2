@@ -6,6 +6,7 @@ void diamante::CicloAutomatico_diamante()
     if(personaje_principal->collidesWithItem(this)){
         personaje_principal->actualizarVidas();
         personaje_principal->Seleccion_rick(9);
+        escenaDiamante->removeItem(this);
         delete this;
     }
     else{

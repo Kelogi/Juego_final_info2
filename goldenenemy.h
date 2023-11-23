@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include "rick.h"
+ #include <QGraphicsScene>
 
 class goldenenemy: public QObject, public QGraphicsPixmapItem
 {
@@ -19,6 +20,7 @@ public:
     void cargarPosicion_goldenenemy(int x, int y);
     void seleccion_goldenenemy(int tipo);
     void obtener_personaje_principal( rick *personaje);
+    void obtener_escena_Goldenenemy( QGraphicsScene *escenita);
 
 private:
     QPixmap Imagen_goldenenemy;
@@ -35,6 +37,9 @@ private:
     //Siempre que un goldenenemy se mueva preguntarse si esta colisionando con el personaje principal
     //obtener direccion de memoria del personaje
     rick *personajePrincipal;
+    //obtener escen del juego en la clase
+    QGraphicsScene *escena_goldenenemy;
+
 
 };
 

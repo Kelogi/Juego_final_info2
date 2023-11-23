@@ -80,6 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
     enemigo2->cargarPosicion_goldenenemy(700,270);
     enemigo2->setPos(700,270);
     enemigo2->obtener_personaje_principal(personajeRick);
+    enemigo2->obtener_escena_Goldenenemy(escena);
     escena->addItem(enemigo2);
 
     personajeRick->setZValue(1);
