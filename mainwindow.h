@@ -7,6 +7,7 @@
 #include "rick.h"
 #include "diamante.h"
 #include "enemyshot.h"
+#include "goldenenemy.h"
 #include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
@@ -28,5 +29,9 @@ private:
     rick *personajeRick;
     diamante *diamond;
     enemyshot *enemigo1;
+    goldenenemy *enemigo2;
+    //QGraphicsPixmapItem *fondo;
+
+    //void set_focus(QGraphicsPixmapItem *item);
 };
 #endif // MAINWINDOW_H

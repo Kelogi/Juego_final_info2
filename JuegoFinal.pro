@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     diamante.cpp \
     enemyshot.cpp \
+    goldenenemy.cpp \
     main.cpp \
     mainwindow.cpp \
     rick.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     diamante.h \
     enemyshot.h \
+    goldenenemy.h \
     mainwindow.h \
     rick.h
 

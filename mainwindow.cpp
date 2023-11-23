@@ -4,24 +4,25 @@
 
 void MainWindow::keyPressEvent(QKeyEvent *tecla)
 {
-    if(tecla->key() == Qt::Key_D and personajeRick->saberSalta_Rick()==false){
+    if(tecla->key() == Qt::Key_D and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)+2.0,personajeRick->saberDatos(1));
+
     }
 
-    if(tecla->key() == Qt::Key_A and personajeRick->saberSalta_Rick()==false){
+    if(tecla->key() == Qt::Key_A and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)-2.0,personajeRick->saberDatos(1));
     }
 
     //rick salta
 
-    if(tecla->key() == Qt::Key_W and personajeRick->saberSalta_Rick()==false){
+    if(tecla->key() == Qt::Key_W and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->Rick_salto();
     }
 
-    if(tecla->key() == Qt::Key_Space){
+    if(tecla->key() == Qt::Key_Space and personajeRick->saberRick_herido()==false){
 
         personajeRick->actualizarFuerzas(0,personajeRick->saberDatos(1));
         personajeRick->Seleccion_rick(4);
@@ -51,6 +52,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
+    //fondo = new QGraphicsPixmapItem;
+    //QPixmap img(":/imagenes/prueba.png");
+    //fondo->setPixmap(img.scaled(img.width()*2,img.height()*2));
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
     personajeRick=new rick();
 
@@ -64,11 +68,27 @@ MainWindow::MainWindow(QWidget *parent)
     //pruebaaaaa
     enemigo1=new enemyshot();
     enemigo1->seleccion_Enemyshot(0);
-    enemigo1->cargarPosicion_Enemyshot(500,200);
-    enemigo1->setPos(500,200);
+    enemigo1->cargarPosicion_Enemyshot(500,50);
+    enemigo1->setPos(500,50);
     enemigo1->obtener_Escena_Enemyshot(escena);
     enemigo1->obtener_personaje(personajeRick);
     escena->addItem(enemigo1);
+
+    //prueba
+    enemigo2=new goldenenemy();
+    enemigo2->seleccion_goldenenemy(7);
+    enemigo2->cargarPosicion_goldenenemy(700,270);
+    enemigo2->setPos(700,270);
+    enemigo2->obtener_personaje_principal(personajeRick);
+    escena->addItem(enemigo2);
+
+    personajeRick->setZValue(1);
+    enemigo1->setZValue(1);
+    enemigo2->setZValue(0);
+
+    //escena->addItem(fondo);
+    //fondo->setPos(0,0);
+    //fondo->setZValue(0);
 
 }
 
@@ -79,3 +99,8 @@ MainWindow::~MainWindow()
     delete personajeRick;
     delete diamond;
 }
+
+/*void MainWindow::set_focus(QGraphicsPixmapItem *item)
+{
+    escena->setSceneRect(item->x(),0,escena->width(),escena->height());
+}*/

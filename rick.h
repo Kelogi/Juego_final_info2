@@ -22,8 +22,11 @@ public:
     void Mover_izquierda();
     void Rick_salto();
     bool saberSalta_Rick();
+    bool saberRick_herido();
+    void actualizar_Rickherido(bool herido);
 
 private:
+    bool rick_herido=false;
     int vidas=10;
     QPixmap Imagen_rick;
     QTimer *TimerRick;
@@ -38,7 +41,7 @@ private:
     int spriteMovIzquierda=0;
     //======================
 
-    float n=0.0, k=5.0,TY=0.1, g=9.8,Vyo=30.0, t, posicion_Y=300;
+    float n=0.0, k=5.0,TY=0.1, g=9.8,Vyo=45.0, t, posicion_Y=300,xo_Salto,Vxo=20.0;
     float Aceleracion_X=0,Velocidad_X=0,Posicion_X=0, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
     bool salto=false;
 

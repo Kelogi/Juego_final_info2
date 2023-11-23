@@ -3,5 +3,7 @@
         <file>imagenes/sprites-rick.png</file>
         <file>imagenes/spritediamante .png</file>
         <file>imagenes/Sprite-enemyshot.png</file>
+        <file>imagenes/Goldensprites.png</file>
+        <file>imagenes/prueba.png</file>
     </qresource>
 </RCC>
