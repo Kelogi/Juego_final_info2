@@ -3,11 +3,13 @@
 
 void diamante::CicloAutomatico_diamante()
 {
-    if(personaje_principal->collidesWithItem(this)){
+    if(personaje_principal->collidesWithItem(this) and personaje_principal->saberRick_herido()==false){
         personaje_principal->actualizarVidas();
+        personaje_principal->actualizarFuerzas(0,0);
         personaje_principal->Seleccion_rick(9);
-        escenaDiamante->removeItem(this);
-        delete this;
+        personaje_principal->actualizar_Rickherido(true);
+        QTimer::singleShot(1500, this, SLOT(Actualizar_Rick_No_herido()));
+        TimerDiamante->stop();
     }
     else{
 
@@ -26,6 +28,13 @@ void diamante::CicloAutomatico_diamante()
         n+=1.0;
     }
 
+}
+
+void diamante::Actualizar_Rick_No_herido()
+{
+    personaje_principal->actualizar_Rickherido(false);
+    escenaDiamante->removeItem(this);
+    delete this;
 }
 
 diamante::diamante()

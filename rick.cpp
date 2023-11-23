@@ -2,48 +2,48 @@
 
 void rick::CicloAutomatico_Rick()
 {
-
-
-
     //Aplicar las leyes de la dinamica al personaje Rick en direcicno del eje Y
-    if(salto==true){
-        t=k*n*TY;
-        posicion_Y=300-Vyo*t+0.5*g*t*t;
-        if(saberDatos(0)!=0)Posicion_X=xo_Salto+Vxo*t;
 
-        if(posicion_Y<=300){
-            this->setY(posicion_Y);
-            if(this->saberDatos(0)!=0)this->setX(Posicion_X);
+    if(this->saberRick_herido()==false){
+        if(salto==true){
+            t=k*n*TY;
+            posicion_Y=300-Vyo*t+0.5*g*t*t;
+            if(saberDatos(0)!=0)Posicion_X=xo_Salto+Vxo*t;
 
-         }
-        else {
-            salto=false;
-            this->setY(300);
-            this->setX(Posicion_X);
-            n=0.0;
-            this->actualizarFuerzas(0,0);
+            if(posicion_Y<=300){
+                this->setY(posicion_Y);
+                if(this->saberDatos(0)!=0)this->setX(Posicion_X);
+
+             }
+            else {
+                salto=false;
+                this->setY(300);
+                this->setX(Posicion_X);
+                n=0.0;
+                this->actualizarFuerzas(0,0);
+            }
+            n+=1.0;
         }
-        n+=1.0;
-    }
 
-    else{
+        else{
 
-        //Aplicar las leyes de la dinamica al personaje Rick en direccion del eje X:
-        Aceleracion_X = FuerzaEnX/masa;
-        Velocidad_X = Aceleracion_X*T;
-        //Se actuliza la nueva posicion en X de Rick
-        Posicion_X = Posicion_X + Velocidad_X;
-        //Dependiendo el signo de la velocidad se mueve Rick hacia la derecha o hacia la izquierda.
-        if(FuerzaEnX!=0){
-            if(Velocidad_X>0)this->Mover_derecha();
-            if(Velocidad_X<0)this->Mover_izquierda();
-            //Siempre actua la fuerza de friccion en el personaje, dependiendo el signo de la Fx de Rick se le suma o resta la de friccion.
-            if(FuerzaEnX>0)FuerzaEnX -=friccionX;
-            else  FuerzaEnX+=friccionX;
-         }
-        else Seleccion_rick(4);
+            //Aplicar las leyes de la dinamica al personaje Rick en direccion del eje X:
+            Aceleracion_X = FuerzaEnX/masa;
+            Velocidad_X = Aceleracion_X*T;
+            //Se actuliza la nueva posicion en X de Rick
+            Posicion_X = Posicion_X + Velocidad_X;
+            //Dependiendo el signo de la velocidad se mueve Rick hacia la derecha o hacia la izquierda.
+            if(FuerzaEnX!=0){
+                if(Velocidad_X>0)this->Mover_derecha();
+                if(Velocidad_X<0)this->Mover_izquierda();
+                //Siempre actua la fuerza de friccion en el personaje, dependiendo el signo de la Fx de Rick se le suma o resta la de friccion.
+                if(FuerzaEnX>0)FuerzaEnX -=friccionX;
+                else  FuerzaEnX+=friccionX;
+             }
+            else Seleccion_rick(4);
 
-    }
+        }
+     }
 
 }
 

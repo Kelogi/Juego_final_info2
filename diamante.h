@@ -12,6 +12,7 @@ class diamante:  public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 private slots:
     void CicloAutomatico_diamante();
+    void Actualizar_Rick_No_herido();
 
 
 public:

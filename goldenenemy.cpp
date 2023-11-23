@@ -15,7 +15,6 @@ void goldenenemy::goldenenemyActivo()
         }
     }
 
-
     if(spriteGoldenenemy==0) spriteGoldenenemy=7;
     else{
         seleccion_goldenenemy(spriteGoldenenemy);
@@ -33,6 +32,7 @@ void goldenenemy::Actualizar_Rick_No_herido()
 {
     personajePrincipal->actualizar_Rickherido(false);
     escena_goldenenemy->removeItem(this);
+    TimerGoldenenemy->stop();
     delete this;
 }
 
