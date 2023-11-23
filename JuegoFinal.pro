@@ -14,6 +14,7 @@ SOURCES += \
     goldenenemy.cpp \
     main.cpp \
     mainwindow.cpp \
+    point.cpp \
     rick.cpp
 
 HEADERS += \
@@ -21,6 +22,7 @@ HEADERS += \
     enemyshot.h \
     goldenenemy.h \
     mainwindow.h \
+    point.h \
     rick.h
 
 FORMS += \
