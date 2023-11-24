@@ -64,42 +64,53 @@ MainWindow::MainWindow(QWidget *parent)
     escena->addItem(personajeRick);
 
     ui->pantalla->setScene(escena);
+    //set_focus(personajeRick);
+
+
+
 
     //Se crean los objetos enemyshot y se guardan en el vector.
 
     for(int i=0;i<3;i++){
-        (*vectorEnemyshots).push_back(new enemyshot);
-        (*vectorEnemyshots)[i]->seleccion_Enemyshot(0);
-        (*vectorEnemyshots)[i]->cargarPosicion_Enemyshot(500*(i+1),50);
-        (*vectorEnemyshots)[i]->setPos(500*(i+1),50);
-        (*vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
-        (*vectorEnemyshots)[i]->obtener_personaje(personajeRick);
-        escena->addItem((*vectorEnemyshots)[i]);
-
+        (vectorEnemyshots).push_back(new enemyshot());
+        (vectorEnemyshots)[i]->seleccion_Enemyshot(0);
+        (vectorEnemyshots)[i]->cargarPosicion_Enemyshot(450*(i+1),50);
+        (vectorEnemyshots)[i]->setPos(450*(i+1),50);
+        (vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
+        (vectorEnemyshots)[i]->obtener_personaje(personajeRick);
+        escena->addItem((vectorEnemyshots)[i]);
+    }
+    //Se crean los objetos goldenenemy y se guardan en el vector.
+    for(int i=0;i<3;i++){
+        (vectorGoldenenemy).push_back(new goldenenemy());
+        (vectorGoldenenemy)[i]->seleccion_goldenenemy(7);
+        (vectorGoldenenemy)[i]->cargarPosicion_goldenenemy(500*(i+1),270);
+        (vectorGoldenenemy)[i]->setPos(500*(i+1),270);
+        (vectorGoldenenemy)[i]->obtener_personaje_principal(personajeRick);
+        (vectorGoldenenemy)[i]->obtener_escena_Goldenenemy(escena);
+        escena->addItem((vectorGoldenenemy)[i]);
     }
 
 
-    //pruebaaaaa
-    enemigo1=new enemyshot();
-    enemigo1->seleccion_Enemyshot(0);
-    enemigo1->cargarPosicion_Enemyshot(500,50);
-    enemigo1->setPos(500,50);
-    enemigo1->obtener_Escena_Enemyshot(escena);
-    enemigo1->obtener_personaje(personajeRick);
-    escena->addItem(enemigo1);
+    //Se crean los objetos puntos y se guardan en un vector
+    int posY=330;
+    for(int i=0;i<3;i++){
+        vectorPoints.push_back(new point());
+        vectorPoints[i]->seleccionar_point();
+        (vectorPoints)[i]->setPos(300*(i+1),posY);
+        vectorPoints[i]->cargar_posicion_point(300*(i+1),posY);
+        escena->addItem(vectorPoints[i]);
+        if(posY==330) posY=300;
+        else posY=330;
+    }
 
-    //prueba
-    enemigo2=new goldenenemy();
-    enemigo2->seleccion_goldenenemy(7);
-    enemigo2->cargarPosicion_goldenenemy(700,270);
-    enemigo2->setPos(700,270);
-    enemigo2->obtener_personaje_principal(personajeRick);
-    enemigo2->obtener_escena_Goldenenemy(escena);
-    escena->addItem(enemigo2);
 
-    personajeRick->setZValue(1);
-    enemigo1->setZValue(1);
-    enemigo2->setZValue(0);
+
+
+
+    //personajeRick->setZValue(1);
+    //enemigo1->setZValue(1);
+    //enemigo2->setZValue(0);
 
     //escena->addItem(fondo);
     //fondo->setPos(0,0);

@@ -6,7 +6,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include "rick.h"
- #include <QGraphicsScene>
+
 
 class goldenenemy: public QObject, public QGraphicsPixmapItem
 {
@@ -19,8 +19,8 @@ public:
     goldenenemy();
     void cargarPosicion_goldenenemy(int x, int y);
     void seleccion_goldenenemy(int tipo);
-    void obtener_personaje_principal( rick *personaje);
-    void obtener_escena_Goldenenemy( QGraphicsScene *escenita);
+    void obtener_personaje_principal(rick *personaje);
+    void obtener_escena_Goldenenemy(QGraphicsScene *escenita);
 
 private:
     QPixmap Imagen_goldenenemy;
