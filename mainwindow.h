@@ -9,6 +9,7 @@
 #include "enemyshot.h"
 #include "goldenenemy.h"
 #include <QKeyEvent>
+#include <QVector>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,9 +28,12 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene *escena;
     rick *personajeRick;
+    //Los enemigos se guardan en un vector que contiene objetos tipo enemyshots.
+    QVector<enemyshot*>* vectorEnemyshots;
     diamante *diamond;
-    enemyshot *enemigo1;
-    goldenenemy *enemigo2;
+    //Los enemigos se guardan en un vector que contiene objetos tipo goldenemys.
+    QVector<goldenenemy*>*vectorGoldenenemy;
+
     //QGraphicsPixmapItem *fondo;
 
     //void set_focus(QGraphicsPixmapItem *item);

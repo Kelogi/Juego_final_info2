@@ -65,6 +65,20 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->pantalla->setScene(escena);
 
+    //Se crean los objetos enemyshot y se guardan en el vector.
+
+    for(int i=0;i<3;i++){
+        (*vectorEnemyshots).push_back(new enemyshot);
+        (*vectorEnemyshots)[i]->seleccion_Enemyshot(0);
+        (*vectorEnemyshots)[i]->cargarPosicion_Enemyshot(500*(i+1),50);
+        (*vectorEnemyshots)[i]->setPos(500*(i+1),50);
+        (*vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
+        (*vectorEnemyshots)[i]->obtener_personaje(personajeRick);
+        escena->addItem((*vectorEnemyshots)[i]);
+
+    }
+
+
     //pruebaaaaa
     enemigo1=new enemyshot();
     enemigo1->seleccion_Enemyshot(0);
