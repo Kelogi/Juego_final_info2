@@ -97,8 +97,10 @@ MainWindow::MainWindow(QWidget *parent)
     for(int i=0;i<3;i++){
         vectorPoints.push_back(new point());
         vectorPoints[i]->seleccionar_point();
-        (vectorPoints)[i]->setPos(300*(i+1),posY);
+        vectorPoints[i]->setPos(300*(i+1),posY);
         vectorPoints[i]->cargar_posicion_point(300*(i+1),posY);
+        vectorPoints[i]->Obtener_escena(escena);
+        vectorPoints[i]->Obtener_personaje_principal(personajeRick);
         escena->addItem(vectorPoints[i]);
         if(posY==330) posY=300;
         else posY=330;

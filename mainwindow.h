@@ -34,14 +34,11 @@ private:
     //Los enemigos se guardan en un vector que contiene objetos tipo goldenemys.
     QVector<goldenenemy*>vectorGoldenenemy;
 
-    //Los ponts se guardan en un vector que contiene objetos tipo point.
+    //Los points se guardan en un vector que contiene objetos tipo point.
     QVector<point*>vectorPoints;
 
     //QGraphicsPixmapItem *fondo;
 
-    //void set_focus(QGraphicsPixmapItem *item);
-    enemyshot *enemigo1;
-    goldenenemy *enemigo2;
-    point *punto;
+
 };
 #endif // MAINWINDOW_H

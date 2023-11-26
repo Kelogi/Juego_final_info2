@@ -17,6 +17,7 @@ public:
     //actualizar fuerza en un instante
     void actualizarFuerzas(float fuerzaX, float fuerzaY);
     void actualizarVidas();
+    void actualizarPuntos();
     float saberDatos(int date);
     void Mover_derecha();
     void Mover_izquierda();
@@ -28,6 +29,7 @@ public:
 private:
     bool rick_herido=false;
     int vidas=10;
+    int puntos=0;
     QPixmap Imagen_rick;
     QTimer *TimerRick;
     QPixmap rick_ind;

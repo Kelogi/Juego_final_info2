@@ -80,6 +80,11 @@ void rick::actualizarVidas()
     vidas--;
 }
 
+void rick::actualizarPuntos()
+{
+    puntos+=10;
+}
+
 float rick::saberDatos(int date)
 {
     if(date==0) return FuerzaEnX;
