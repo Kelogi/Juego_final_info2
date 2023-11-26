@@ -21,6 +21,7 @@ public:
     void seleccion_goldenenemy(int tipo);
     void obtener_personaje_principal(rick *personaje);
     void obtener_escena_Goldenenemy(QGraphicsScene *escenita);
+    void goldenenemy_muerto();
 
 private:
     QPixmap Imagen_goldenenemy;

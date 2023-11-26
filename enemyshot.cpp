@@ -14,6 +14,7 @@ void enemyshot::EnemyshotActivo()
         diamondEnemyShot->Cargar_Vyo_movimiento(Vy_azar);
 
         diamondEnemyShot->seleccion_diamante(0);
+        diamondEnemyShot->cargar_quien_dispara(false);
         diamondEnemyShot->cargarPos_Inicial(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);
         diamondEnemyShot->setPos(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);
         escenaEnemyshot->addItem(diamondEnemyShot);
@@ -72,3 +73,4 @@ int enemyshot::posicionY_Enemyshot()
 {
     return posicionY;
 }
+

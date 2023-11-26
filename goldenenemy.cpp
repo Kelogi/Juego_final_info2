@@ -31,9 +31,6 @@ void goldenenemy::goldenenemyActivo()
 void goldenenemy::Actualizar_Rick_No_herido()
 {
     personajePrincipal->actualizar_Rickherido(false);
-    escena_goldenenemy->removeItem(this);
-    TimerGoldenenemy->stop();
-    delete this;
 }
 
 goldenenemy::goldenenemy()
@@ -68,4 +65,11 @@ void goldenenemy::obtener_personaje_principal(rick *personaje)
 void goldenenemy::obtener_escena_Goldenenemy(QGraphicsScene *escenita)
 {
     escena_goldenenemy=escenita;
+}
+
+void goldenenemy::goldenenemy_muerto()
+{
+    TimerGoldenenemy->stop();
+    escena_goldenenemy->removeItem(this);
+    delete this;
 }

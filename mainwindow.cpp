@@ -29,6 +29,8 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         diamond=new diamante();
         diamond->Cargar_Vxo_movimiento(45);
         diamond->Cargar_Vyo_movimiento(30);
+        diamond->recibir_enemygolds(&vectorGoldenenemy);
+        diamond->cargar_quien_dispara(true);
         diamond->seleccion_diamante(0);
         diamond->cargarPos_Inicial(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
         diamond->setPos(personajeRick->saberDatos(2)+50,personajeRick->saberDatos(3)+20);
@@ -81,11 +83,11 @@ MainWindow::MainWindow(QWidget *parent)
         escena->addItem((vectorEnemyshots)[i]);
     }
     //Se crean los objetos goldenenemy y se guardan en el vector.
-    for(int i=0;i<3;i++){
+    for(int i=0;i<10;i++){
         (vectorGoldenenemy).push_back(new goldenenemy());
         (vectorGoldenenemy)[i]->seleccion_goldenenemy(7);
-        (vectorGoldenenemy)[i]->cargarPosicion_goldenenemy(500*(i+1),270);
-        (vectorGoldenenemy)[i]->setPos(500*(i+1),270);
+        (vectorGoldenenemy)[i]->cargarPosicion_goldenenemy(300*(i+1),270);
+        (vectorGoldenenemy)[i]->setPos(300*(i+1),270);
         (vectorGoldenenemy)[i]->obtener_personaje_principal(personajeRick);
         (vectorGoldenenemy)[i]->obtener_escena_Goldenenemy(escena);
         escena->addItem((vectorGoldenenemy)[i]);

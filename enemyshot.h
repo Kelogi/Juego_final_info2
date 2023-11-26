@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <time.h>
 //para pasarle la direccion de memoria del rick a los diamantes;
-#include "rick.h"
+#include "rick.h" 
 
 
 class enemyshot: public QObject, public QGraphicsPixmapItem

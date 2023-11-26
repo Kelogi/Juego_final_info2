@@ -3,6 +3,18 @@
 
 void diamante::CicloAutomatico_diamante()
 {
+    //preguntarnos si el diamante colisiona con un objeto goldenenemy.
+
+    if(quienDispara==true){ //El diamante fue creado por la clase rick(rick dispara el diamante)
+
+        for(int i=0;i<(*Vector_goldenenemy).size();i++){
+            if((*Vector_goldenenemy)[i]->collidesWithItem(this)){
+                (*Vector_goldenenemy)[i]->goldenenemy_muerto();
+                (*Vector_goldenenemy).remove(i);
+            }
+        }
+    }
+    //preguntarnos si el diamante colisiona con rick y ademas rick no esta herido.
     if(personaje_principal->collidesWithItem(this) and personaje_principal->saberRick_herido()==false){
         personaje_principal->actualizarVidas();
         personaje_principal->actualizarFuerzas(0,0);
@@ -10,6 +22,8 @@ void diamante::CicloAutomatico_diamante()
         personaje_principal->actualizar_Rickherido(true);
         QTimer::singleShot(1500, this, SLOT(Actualizar_Rick_No_herido()));
         TimerDiamante->stop();
+
+
     }
     else{
 
@@ -79,4 +93,14 @@ void diamante::Cargar_Vxo_movimiento(int Vx)
 void diamante::Cargar_Vyo_movimiento(int Vy)
 {
     Vyo=Vy;
+}
+
+void diamante::recibir_enemygolds(QVector<goldenenemy *> *Vector)
+{
+    Vector_goldenenemy=Vector;
+}
+
+void diamante::cargar_quien_dispara(bool disparo)
+{
+    quienDispara=disparo;
 }
