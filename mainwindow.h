@@ -10,6 +10,7 @@
 #include <QKeyEvent>
 #include <QVector>
 #include "point.h"
+#include "roca.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,6 +39,8 @@ private:
     QVector<point*>vectorPoints;
 
     //QGraphicsPixmapItem *fondo;
+
+    roca *roquita;
 
 
 };

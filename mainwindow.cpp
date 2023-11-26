@@ -16,7 +16,6 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
     }
 
     //rick salta
-
     if(tecla->key() == Qt::Key_W and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->Rick_salto();
@@ -107,6 +106,14 @@ MainWindow::MainWindow(QWidget *parent)
         if(posY==330) posY=300;
         else posY=330;
     }
+    roquita=new roca();
+    roquita->seleccionar_roca(0);
+    roquita->setPos(300,260);
+    roquita->cargar_posicion_rock(300,260);
+    roquita->obetener_personaje(personajeRick);
+    escena->addItem(roquita);
+
+
 
 
 
