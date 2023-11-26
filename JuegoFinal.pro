@@ -15,7 +15,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     point.cpp \
-    rick.cpp
+    rick.cpp \
+    roca.cpp
 
 HEADERS += \
     diamante.h \
@@ -23,7 +24,8 @@ HEADERS += \
     goldenenemy.h \
     mainwindow.h \
     point.h \
-    rick.h
+    rick.h \
+    roca.h
 
 FORMS += \
     mainwindow.ui
