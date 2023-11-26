@@ -108,8 +108,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
     roquita=new roca();
     roquita->seleccionar_roca(0);
-    roquita->setPos(300,260);
-    roquita->cargar_posicion_rock(300,260);
+    roquita->setPos(300,230);
+    roquita->cargar_posicion_rock(300,230);
     roquita->obetener_personaje(personajeRick);
     escena->addItem(roquita);
 

@@ -25,9 +25,13 @@ public:
     bool saberSalta_Rick();
     bool saberRick_herido();
     void actualizar_Rickherido(bool herido);
+    bool saber_Rick_in_Rock();
+    void actualizar_RickinRock(bool inRock);
+    void actualizar_posicionRick(int x, int y);
 
 private:
     bool rick_herido=false;
+    bool rick_InRock=false;
     int vidas=10;
     int puntos=0;
     QPixmap Imagen_rick;

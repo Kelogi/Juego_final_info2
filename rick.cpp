@@ -2,9 +2,9 @@
 
 void rick::CicloAutomatico_Rick()
 {
-    //Aplicar las leyes de la dinamica al personaje Rick en direcicno del eje Y
+    //Aplicar las leyes de la dinamica al personaje Rick en direccion del eje Y
 
-    if(this->saberRick_herido()==false){
+    if(this->saberRick_herido()==false and this->saber_Rick_in_Rock()==false){
         if(salto==true){
             t=k*n*TY;
             posicion_Y=300-Vyo*t+0.5*g*t*t;
@@ -147,4 +147,20 @@ bool rick::saberRick_herido()
 void rick::actualizar_Rickherido(bool herido)
 {
     rick_herido=herido;
+}
+
+bool rick::saber_Rick_in_Rock()
+{
+    return rick_InRock;
+}
+
+void rick::actualizar_RickinRock(bool inRock)
+{
+    rick_InRock=inRock;
+}
+
+void rick::actualizar_posicionRick(int x, int y)
+{
+    Posicion_X=x;
+    posicion_Y=y;
 }

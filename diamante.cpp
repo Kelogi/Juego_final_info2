@@ -47,6 +47,7 @@ void diamante::CicloAutomatico_diamante()
 void diamante::Actualizar_Rick_No_herido()
 {
     personaje_principal->actualizar_Rickherido(false);
+    personaje_principal->Seleccion_rick(4);
     escenaDiamante->removeItem(this);
     delete this;
 }

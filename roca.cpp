@@ -2,8 +2,11 @@
 void roca::rickinRock()
 {
     if(personajePrincipal->collidesWithItem(this) and personajePrincipal->saberDatos(3)>=posY_rock){
-        personajePrincipal->setPos(posX_rock+5,posY_rock-60);
+        personajePrincipal->setPos(posX_rock+25,posY_rock-50);
         personajePrincipal->actualizarFuerzas(0,0);
+        personajePrincipal->actualizar_posicionRick(posX_rock+25,posY_rock-50);
+        personajePrincipal->Seleccion_rick(4);
+        personajePrincipal->actualizar_RickinRock(true);
     }
 }
 
@@ -19,7 +22,7 @@ roca::roca()
 
 void roca::seleccionar_roca(int tipo)
 {
-    Imagen_roca_ind=Imagen_rocas.copy(sizeSpriteX*tipo,0,sizeSpriteX,sizeSpriteY).scaled(70,30);
+    Imagen_roca_ind=Imagen_rocas.copy(sizeSpriteX*tipo,0,sizeSpriteX,sizeSpriteY).scaled(100,40);
     setPixmap(Imagen_roca_ind);
 }
 
