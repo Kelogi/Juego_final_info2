@@ -7,7 +7,10 @@ void rick::CicloAutomatico_Rick()
     if(this->saberRick_herido()==false and this->saber_Rick_in_Rock()==false){
         if(salto==true){
             t=k*n*TY;
-            posicion_Y=300-Vyo*t+0.5*g*t*t;
+
+            posicion_Y=yo_Salto-Vyo*t+0.5*g*t*t;
+
+
             if(saberDatos(0)!=0)Posicion_X=xo_Salto+Vxo*t;
 
             if(posicion_Y<=300){
@@ -17,10 +20,12 @@ void rick::CicloAutomatico_Rick()
              }
             else {
                 salto=false;
+                posicion_Y=300;
                 this->setY(300);
                 this->setX(Posicion_X);
                 n=0.0;
                 this->actualizarFuerzas(0,0);
+                Vyo=45.0;
             }
             n+=1.0;
         }
@@ -103,9 +108,6 @@ void rick::Mover_derecha()
     spriteMovDerecha++;
     //se actualiza la posicion de Rick
     this->setX(Posicion_X);
-
-
-
 }
 
 void rick::Mover_izquierda()
@@ -132,6 +134,7 @@ void rick::Rick_salto()
 {
     salto=true;
     xo_Salto=this->saberDatos(2);
+    yo_Salto=this->saberDatos(3);
 }
 
 bool rick::saberSalta_Rick()
@@ -164,3 +167,18 @@ void rick::actualizar_posicionRick(int x, int y)
     Posicion_X=x;
     posicion_Y=y;
 }
+
+void rick::recibir_Vyo(int Vy)
+{
+    Vyo=Vy;
+}
+
+/*void rick::actualizar_rick_cae(bool cae)
+{
+    rick_cae_rock=cae;
+}
+
+bool rick::saber_rick_cae()
+{
+    return rick_cae_rock;
+}*/

@@ -7,6 +7,8 @@ void roca::rickinRock()
         personajePrincipal->actualizar_posicionRick(posX_rock+25,posY_rock-50);
         personajePrincipal->Seleccion_rick(4);
         personajePrincipal->actualizar_RickinRock(true);
+        TimerRick_Rock->stop();
+        personajePrincipal->recibir_Vyo(0);
     }
 }
 

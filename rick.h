@@ -28,10 +28,14 @@ public:
     bool saber_Rick_in_Rock();
     void actualizar_RickinRock(bool inRock);
     void actualizar_posicionRick(int x, int y);
+    void recibir_Vyo(int Vy);
+   // void actualizar_rick_cae(bool cae);
+    //bool saber_rick_cae();
 
 private:
     bool rick_herido=false;
     bool rick_InRock=false;
+    bool rick_cae_rock=false;
     int vidas=10;
     int puntos=0;
     QPixmap Imagen_rick;
@@ -47,7 +51,7 @@ private:
     int spriteMovIzquierda=0;
     //======================
 
-    float n=0.0, k=5.0,TY=0.1, g=9.8,Vyo=45.0, t, posicion_Y=300,xo_Salto,Vxo=20.0;
+    float n=0.0, k=5.0,TY=0.1, g=9.8,Vyo=45.0, t, posicion_Y=300,xo_Salto,Vxo=20.0,yo_Salto;
     float Aceleracion_X=0,Velocidad_X=0,Posicion_X=0, masa=250, FuerzaEnX=0,FuerzaEnY, T=100, friccionX=2;
     bool salto=false;
 

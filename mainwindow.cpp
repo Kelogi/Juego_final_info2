@@ -20,6 +20,10 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         //actualizar fuerza en esa direccion
         personajeRick->Rick_salto();
     }
+    if(tecla->key() == Qt::Key_S and personajeRick->saber_Rick_in_Rock()==true){
+        personajeRick->actualizar_RickinRock(false);
+        personajeRick->Rick_salto();
+    }
 
     if(tecla->key() == Qt::Key_Space and personajeRick->saberRick_herido()==false){
 
@@ -38,8 +42,6 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         //se carga la escena en la clase diamante
         diamond->obtenerEscena_Diamante(escena);
     }
-
-
 
 }
 
@@ -75,8 +77,8 @@ MainWindow::MainWindow(QWidget *parent)
     for(int i=0;i<3;i++){
         (vectorEnemyshots).push_back(new enemyshot());
         (vectorEnemyshots)[i]->seleccion_Enemyshot(0);
-        (vectorEnemyshots)[i]->cargarPosicion_Enemyshot(450*(i+1),50);
-        (vectorEnemyshots)[i]->setPos(450*(i+1),50);
+        (vectorEnemyshots)[i]->cargarPosicion_Enemyshot(450*(i+1),30);
+        (vectorEnemyshots)[i]->setPos(450*(i+1),30);
         (vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
         (vectorEnemyshots)[i]->obtener_personaje(personajeRick);
         escena->addItem((vectorEnemyshots)[i]);
@@ -108,8 +110,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
     roquita=new roca();
     roquita->seleccionar_roca(0);
-    roquita->setPos(300,230);
-    roquita->cargar_posicion_rock(300,230);
+    roquita->setPos(300,200);
+    roquita->cargar_posicion_rock(300,200);
     roquita->obetener_personaje(personajeRick);
     escena->addItem(roquita);
 
