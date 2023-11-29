@@ -23,9 +23,14 @@ class MainWindow : public QMainWindow
 public:
     void keyPressEvent(QKeyEvent *tecla);
     MainWindow(QWidget *parent = nullptr);
+    void set_focus(QGraphicsPixmapItem *item);
     ~MainWindow();
 
+    bool Evento_aleatorio();
+
 private:
+
+    float probabilidad=0.6;
     Ui::MainWindow *ui;
     QGraphicsScene *escena;
     rick *personajeRick;
