@@ -25,7 +25,6 @@ void rick::CicloAutomatico_Rick()
                 this->setX(Posicion_X);
                 n=0.0;
                 this->actualizarFuerzas(0,0);
-                Vyo=45.0;
             }
             n+=1.0;
         }

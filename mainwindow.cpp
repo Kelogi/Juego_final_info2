@@ -19,6 +19,7 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
     if(tecla->key() == Qt::Key_W and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->Rick_salto();
+        personajeRick->recibir_Vyo(45.0);
     }
     if(tecla->key() == Qt::Key_S and personajeRick->saber_Rick_in_Rock()==true){
         personajeRick->actualizar_RickinRock(false);
@@ -55,9 +56,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
-    //fondo = new QGraphicsPixmapItem;
-    //QPixmap img(":/imagenes/prueba.png");
-    //fondo->setPixmap(img.scaled(img.width()*2,img.height()*2));
+    fondo = new QGraphicsPixmapItem;
+    QPixmap img(":/imagenes/fondo.png");
+    fondo->setPixmap(img.scaled(img.width(),img.height()));
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
     personajeRick=new rick();
 
@@ -65,6 +66,8 @@ MainWindow::MainWindow(QWidget *parent)
     personajeRick->Seleccion_rick(4);
     personajeRick->setPos(0,300);
     escena->addItem(personajeRick);
+    personajeRick->setZValue(1);
+
 
     ui->pantalla->setScene(escena);
     //set_focus(personajeRick);
@@ -82,6 +85,8 @@ MainWindow::MainWindow(QWidget *parent)
         (vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
         (vectorEnemyshots)[i]->obtener_personaje(personajeRick);
         escena->addItem((vectorEnemyshots)[i]);
+        (vectorEnemyshots)[i]->setZValue(1);
+
     }
     //Se crean los objetos goldenenemy y se guardan en el vector.
     for(int i=0;i<10;i++){
@@ -92,6 +97,7 @@ MainWindow::MainWindow(QWidget *parent)
         (vectorGoldenenemy)[i]->obtener_personaje_principal(personajeRick);
         (vectorGoldenenemy)[i]->obtener_escena_Goldenenemy(escena);
         escena->addItem((vectorGoldenenemy)[i]);
+        (vectorGoldenenemy)[i]->setZValue(1);
     }
 
 
@@ -105,15 +111,22 @@ MainWindow::MainWindow(QWidget *parent)
         vectorPoints[i]->Obtener_escena(escena);
         vectorPoints[i]->Obtener_personaje_principal(personajeRick);
         escena->addItem(vectorPoints[i]);
+        (vectorEnemyshots)[i]->setZValue(1);
         if(posY==330) posY=300;
         else posY=330;
     }
-    roquita=new roca();
-    roquita->seleccionar_roca(0);
-    roquita->setPos(300,200);
-    roquita->cargar_posicion_rock(300,200);
-    roquita->obetener_personaje(personajeRick);
-    escena->addItem(roquita);
+
+
+    for(int i=0;i<3;i++){
+        vectorRocas.push_back(new roca());
+        vectorRocas[i]->seleccionar_roca(0);
+        vectorRocas[i]->setPos(200*(i+1),200);
+        vectorRocas[i]->cargar_posicion_rock(200*(i+1),200);
+        vectorRocas[i]->obetener_personaje(personajeRick);
+        escena->addItem(vectorRocas[i]);
+        (vectorRocas)[i]->setZValue(1);
+
+    }
 
 
 
@@ -125,9 +138,9 @@ MainWindow::MainWindow(QWidget *parent)
     //enemigo1->setZValue(1);
     //enemigo2->setZValue(0);
 
-    //escena->addItem(fondo);
-    //fondo->setPos(0,0);
-    //fondo->setZValue(0);
+    escena->addItem(fondo);
+    fondo->setPos(0,0);
+    fondo->setZValue(0);
 
 }
 

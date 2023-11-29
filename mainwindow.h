@@ -38,9 +38,11 @@ private:
     //Los points se guardan en un vector que contiene objetos tipo point.
     QVector<point*>vectorPoints;
 
-    //QGraphicsPixmapItem *fondo;
+    //Las rocas se guardan en un vector que contiene objeticos tipo roca
+    QVector<roca*>vectorRocas;
 
-    roca *roquita;
+    //para el fondo del juego
+    QGraphicsPixmapItem *fondo;
 
 
 };

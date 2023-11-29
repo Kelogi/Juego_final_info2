@@ -4,8 +4,8 @@
         <file>imagenes/spritediamante .png</file>
         <file>imagenes/Sprite-enemyshot.png</file>
         <file>imagenes/Goldensprites.png</file>
-        <file>imagenes/prueba.png</file>
         <file>imagenes/sprites-points.png</file>
         <file>imagenes/sprite_roca.png</file>
+        <file>imagenes/fondo.png</file>
     </qresource>
 </RCC>
