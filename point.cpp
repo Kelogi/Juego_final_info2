@@ -3,7 +3,7 @@
 void point::Rick_obtiene_diamante()
 {
     if(personajePrincipal->collidesWithItem(this)){
-        personajePrincipal->actualizarPuntos();
+        personajePrincipal->actualizarPuntos(personajePrincipal->saberPuntos()-1);
         escena_Diamante->removeItem(this);
         delete this;
     }

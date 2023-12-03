@@ -79,14 +79,34 @@ void rick::actualizarFuerzas(float fuerzaX, float fuerzaY)
     FuerzaEnY=fuerzaY;
 }
 
-void rick::actualizarVidas()
+void rick::actualizarVidas(int actualVidas)
 {
-    vidas--;
+    vidasRick=actualVidas;
 }
 
-void rick::actualizarPuntos()
+void rick::actualizarPuntos(int actualPuntos)
 {
-    puntos+=10;
+    puntosRick=actualPuntos;
+}
+
+void rick::actualizarDisparos(int actualDisparos)
+{
+    disparosRick=actualDisparos;
+}
+
+int rick::saberVidas()
+{
+    return vidasRick;
+}
+
+int rick::saberDisparos()
+{
+    return disparosRick;
+}
+
+int rick::saberPuntos()
+{
+    return puntosRick;
 }
 
 float rick::saberDatos(int date)

@@ -16,8 +16,6 @@ public:
     void Seleccion_rick(int Tipo);
     //actualizar fuerza en un instante
     void actualizarFuerzas(float fuerzaX, float fuerzaY);
-    void actualizarVidas();
-    void actualizarPuntos();
     float saberDatos(int date);
     void Mover_derecha();
     void Mover_izquierda();
@@ -29,15 +27,22 @@ public:
     void actualizar_RickinRock(bool inRock);
     void actualizar_posicionRick(int x, int y);
     void recibir_Vyo(int Vy);
-   // void actualizar_rick_cae(bool cae);
-    //bool saber_rick_cae();
+
+
+    void actualizarVidas(int actualVidas);
+    void actualizarPuntos(int actualPuntos);
+    void actualizarDisparos(int actualDisparos);
+    int saberVidas();
+    int saberDisparos();
+    int saberPuntos();
 
 private:
     bool rick_herido=false;
     bool rick_InRock=false;
     bool rick_cae_rock=false;
-    int vidas=10;
-    int puntos=0;
+    int vidasRick=5;
+    int puntosRick=0;
+    int disparosRick=6;
     QPixmap Imagen_rick;
     QTimer *TimerRick;
     QPixmap rick_ind;

@@ -6,7 +6,7 @@ void goldenenemy::goldenenemyActivo()
 
     if(personajePrincipal->collidesWithItem(this) and personajePrincipal->saberRick_herido()==false){
         if(spriteGoldenenemy==1 or spriteGoldenenemy==2 or spriteGoldenenemy==3 or spriteGoldenenemy==4){
-            personajePrincipal->actualizarVidas();
+            personajePrincipal->actualizarVidas(personajePrincipal->saberVidas()-1);
             personajePrincipal->actualizarFuerzas(0,0);
             personajePrincipal->Seleccion_rick(9);
             personajePrincipal->actualizar_Rickherido(true);

@@ -26,8 +26,12 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
         personajeRick->Rick_salto();
     }
 
-    if(tecla->key() == Qt::Key_Space and personajeRick->saberRick_herido()==false){
+    if(tecla->key() == Qt::Key_Space and personajeRick->saberRick_herido()==false and personajeRick->saberDisparos()!=0){
 
+        //rick prenta un disparo menos
+        personajeRick->actualizarDisparos(personajeRick->saberDisparos()-1);
+        //se actualzia la nueva cnatidad de disparos en el Qlabel
+        ui->disparos->setNum(personajeRick->saberDisparos());
         personajeRick->actualizarFuerzas(0,personajeRick->saberDatos(1));
         personajeRick->Seleccion_rick(4);
         diamond=new diamante();
@@ -54,8 +58,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->pantalla->setGeometry(0,0,width(),height());
     ui->pantalla->setVisible(false);
-    ui->vidas->setVisible(true);
-    ui->
+    ui->vidas->setVisible(false);
+    ui->puntaje->setVisible(false);
+    ui->disparos->setVisible(false);
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
@@ -199,5 +204,8 @@ void MainWindow::on_pushButton_clicked()
 {
     ui->pantalla->setVisible(true);
     ui->widget->setVisible(false);
+    ui->vidas->setVisible(true);
+    ui->puntaje->setVisible(true);
+    ui->disparos->setVisible(true);
 }
 
