@@ -212,15 +212,25 @@ void MainWindow::on_pushButton_clicked()
 {
     ui->pantalla->setVisible(true);
     ui->widget->setVisible(false);
+
     ui->vidas->setVisible(true);
     ui->vidas->setNum(personajeRick->saberVidas());
+    ui->vidas->setStyleSheet("color:white");
+
     ui->puntaje->setVisible(true);
     ui->puntaje->setNum(personajeRick->saberPuntos());
+    ui->puntaje->setStyleSheet("color:white");
+
     ui->disparos->setVisible(true);
-    ui->disparos->setNum(personajeRick->saberPuntos());
+    ui->disparos->setNum(personajeRick->saberDisparos());
+    ui->disparos->setStyleSheet("color:white");
+
     ui->label_2->setVisible(true);
+    ui->label_2->setStyleSheet("color:white");
     ui->label_3->setVisible(true);
+    ui->label_3->setStyleSheet("color:white");
     ui->label_4->setVisible(true);
+    ui->label_4->setStyleSheet("color:white");
 
 
 }
@@ -229,5 +239,6 @@ void MainWindow::Actualizardatos()
 {
     ui->vidas->setNum(personajeRick->saberVidas());
     ui->puntaje->setNum(personajeRick->saberPuntos());
+    ui->disparos->setNum(personajeRick->saberDisparos());
 }
 

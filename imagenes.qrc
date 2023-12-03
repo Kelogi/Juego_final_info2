@@ -7,5 +7,6 @@
         <file>imagenes/sprites-points.png</file>
         <file>imagenes/sprite_roca.png</file>
         <file>imagenes/fondo.png</file>
+        <file>imagenes/pinchos.png</file>
     </qresource>
 </RCC>

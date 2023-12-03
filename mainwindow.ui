@@ -27,43 +27,30 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>100</y>
-      <width>120</width>
-      <height>80</height>
+      <x>340</x>
+      <y>20</y>
+      <width>221</width>
+      <height>171</height>
      </rect>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>50</y>
-       <width>49</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>20</y>
-       <width>80</width>
-       <height>24</height>
+       <x>40</x>
+       <y>40</y>
+       <width>131</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Jugar</string>
      </property>
     </widget>
    </widget>
    <widget class="QLabel" name="vidas">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>50</x>
       <y>10</y>
       <width>21</width>
       <height>16</height>
