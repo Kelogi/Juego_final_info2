@@ -180,6 +180,10 @@ MainWindow::MainWindow(QWidget *parent)
         (vectorGoldenenemy)[i]->setZValue(1);
     }
 
+    bolita=new ballpincho();
+    bolita->PosicionInicial(500,500);
+    bolita->setPos(500,500);
+    escena->addItem(bolita);
 
 
     escena->addItem(fondo);

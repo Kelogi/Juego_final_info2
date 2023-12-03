@@ -12,6 +12,7 @@
 #include "point.h"
 #include "roca.h"
 #include <stdlib.h>
+#include "ballpincho.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -54,6 +55,8 @@ private:
 
     //para el fondo del juego
     QGraphicsPixmapItem *fondo;
+
+    ballpincho *bolita;
 
 
 };
