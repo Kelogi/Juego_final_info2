@@ -12,6 +12,10 @@ void point::Rick_obtiene_diamante()
     if(personajePrincipal->saberPuntos()==500){
         personajePrincipal->actualizarPuntos(0);
         // rick adquiere una nueva vida o un nuevo disparo
+
+        //adquiere vida
+        if(Evento_aleatorio()==true) personajePrincipal->actualizarVidas(personajePrincipal->saberVidas()+1);
+        else personajePrincipal->actualizarDisparos(personajePrincipal->saberDisparos()+1);
     }
 
 }
