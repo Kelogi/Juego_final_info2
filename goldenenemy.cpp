@@ -73,3 +73,4 @@ void goldenenemy::goldenenemy_muerto()
     escena_goldenenemy->removeItem(this);
     delete this;
 }
+

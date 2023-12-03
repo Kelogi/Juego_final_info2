@@ -11,6 +11,7 @@
 #include <QVector>
 #include "point.h"
 #include "roca.h"
+#include <stdlib.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,10 +31,12 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void Actualizardatos();
 
 private:
 
-    float probabilidad=0.6;
+    QTimer *ActualizarDatos; //para actualizarDatos
+    float probabilidad=0.45;
     Ui::MainWindow *ui;
     QGraphicsScene *escena;
     rick *personajeRick;

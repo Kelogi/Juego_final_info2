@@ -55,12 +55,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //para actualizar datos:
+    ActualizarDatos=new QTimer;
+    connect(ActualizarDatos,SIGNAL(timeout()),this,SLOT(Actualizardatos()));
+    ActualizarDatos->start(10);
 
     ui->pantalla->setGeometry(0,0,width(),height());
     ui->pantalla->setVisible(false);
     ui->vidas->setVisible(false);
     ui->puntaje->setVisible(false);
     ui->disparos->setVisible(false);
+
+    ui->label_2->setVisible(false);
+    ui->label_3->setVisible(false);
+    ui->label_4->setVisible(false);
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
@@ -205,7 +213,21 @@ void MainWindow::on_pushButton_clicked()
     ui->pantalla->setVisible(true);
     ui->widget->setVisible(false);
     ui->vidas->setVisible(true);
+    ui->vidas->setNum(personajeRick->saberVidas());
     ui->puntaje->setVisible(true);
+    ui->puntaje->setNum(personajeRick->saberPuntos());
     ui->disparos->setVisible(true);
+    ui->disparos->setNum(personajeRick->saberPuntos());
+    ui->label_2->setVisible(true);
+    ui->label_3->setVisible(true);
+    ui->label_4->setVisible(true);
+
+
+}
+
+void MainWindow::Actualizardatos()
+{
+    ui->vidas->setNum(personajeRick->saberVidas());
+    ui->puntaje->setNum(personajeRick->saberPuntos());
 }
 

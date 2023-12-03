@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include "rick.h"
+//#include <QMainWindow>
 
 
 class goldenenemy: public QObject, public QGraphicsPixmapItem

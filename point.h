@@ -16,11 +16,13 @@ public slots:
 public:
     point();
     void seleccionar_point();
+    bool Evento_aleatorio();
     void cargar_posicion_point(int x, int y );
     void Obtener_personaje_principal(rick *personaje);
     void Obtener_escena(QGraphicsScene *escenita);
 
 private:
+    float probabilidad=0.6;
     QPixmap Imagen_point;
     QPixmap Imagen_point_ind;
     rick *personajePrincipal;

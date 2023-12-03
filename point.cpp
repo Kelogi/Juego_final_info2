@@ -3,9 +3,15 @@
 void point::Rick_obtiene_diamante()
 {
     if(personajePrincipal->collidesWithItem(this)){
-        personajePrincipal->actualizarPuntos(personajePrincipal->saberPuntos()-1);
+        personajePrincipal->actualizarPuntos(personajePrincipal->saberPuntos()+100);
         escena_Diamante->removeItem(this);
         delete this;
+    }
+
+    //preguntarnos si rick tiene 500 puntos para que obtenga un nuevo disparo o una nueva vida.
+    if(personajePrincipal->saberPuntos()==500){
+        personajePrincipal->actualizarPuntos(0);
+        // rick adquiere una nueva vida o un nuevo disparo
     }
 
 }
@@ -42,5 +48,12 @@ void point::Obtener_personaje_principal(rick *personaje)
 void point::Obtener_escena(QGraphicsScene *escenita)
 {
     escena_Diamante=escenita;
+}
+
+
+bool point::Evento_aleatorio(){
+         int num_rand = rand(), x;
+         x = probabilidad*(RAND_MAX+1)-1;
+         return num_rand <= x;
 }
 

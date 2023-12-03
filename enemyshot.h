@@ -13,6 +13,7 @@
 #include "rick.h" 
 
 
+
 class enemyshot: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -27,6 +28,7 @@ public:
     void cargarPosicion_Enemyshot(int x, int y);
     int posicionX_Enemyshot();
     int posicionY_Enemyshot();
+
 
 private:
     QPixmap Imagenes_enemyshot;
@@ -44,6 +46,7 @@ private:
     int size_spritex=100;
     int size_spritey=99;
     //==============================
+
 };
 
 #endif // ENEMYSHOT_H

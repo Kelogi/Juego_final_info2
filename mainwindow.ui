@@ -63,7 +63,7 @@
    <widget class="QLabel" name="vidas">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>10</y>
       <width>21</width>
       <height>16</height>
@@ -76,7 +76,7 @@
    <widget class="QLabel" name="disparos">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>30</y>
       <width>21</width>
       <height>16</height>
@@ -89,7 +89,7 @@
    <widget class="QLabel" name="puntaje">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>50</y>
       <width>21</width>
       <height>16</height>
@@ -97,6 +97,45 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vidas:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Disparos:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Puntaje:</string>
     </property>
    </widget>
   </widget>
