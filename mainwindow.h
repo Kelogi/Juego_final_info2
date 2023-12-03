@@ -28,6 +28,9 @@ public:
 
     bool Evento_aleatorio();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
 
     float probabilidad=0.6;

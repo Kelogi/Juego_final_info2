@@ -7,7 +7,7 @@ void MainWindow::keyPressEvent(QKeyEvent *tecla)
     if(tecla->key() == Qt::Key_D and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
         //actualizar fuerza en esa direccion
         personajeRick->actualizarFuerzas(personajeRick->saberDatos(0)+2.0,personajeRick->saberDatos(1));
-
+        escena->setSceneRect(personajeRick->x()-100,0,escena->width(),escena->height());
     }
 
     if(tecla->key() == Qt::Key_A and personajeRick->saberSalta_Rick()==false and personajeRick->saberRick_herido()==false){
@@ -53,12 +53,19 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->pantalla->setGeometry(0,0,width(),height());
+    ui->pantalla->setVisible(false);
+    ui->vidas->setVisible(true);
+    ui->
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
     fondo = new QGraphicsPixmapItem;
-    QPixmap img(":/imagenes/fondo.png");
-    fondo->setPixmap(img.scaled(img.width(),img.height()));
+    //QPixmap img(":/imagenes/fondo.png");
+    QImage p(":/imagenes/fondo.png");
+    QBrush img(p);
+    ui->pantalla->setBackgroundBrush(img);
+    //ui->label->setPixmap(":/imagenes");
+    //fondo->setPixmap(img.scaled(img.width(),img.height()));
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
     personajeRick=new rick();
 
@@ -162,27 +169,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    /*posY=160;
-
-    for(int i=0;i<3;i++){
-        vectorRocas.push_back(new roca());
-        vectorRocas[i]->seleccionar_roca(0);
-        vectorRocas[i]->setPos(300*(i+1),posY);
-        vectorRocas[i]->cargar_posicion_rock(200*(i+1),posY);
-        vectorRocas[i]->obetener_personaje(personajeRick);
-        escena->addItem(vectorRocas[i]);
-        (vectorRocas)[i]->setZValue(1);
-        if(posY==160) posY=200;
-        else posY=160;
-
-    }*/
-
-
-
-    //personajeRick->setZValue(1);
-    //enemigo1->setZValue(1);
-    //enemigo2->setZValue(0);
-
     escena->addItem(fondo);
     fondo->setPos(0,0);
     fondo->setZValue(0);
@@ -208,3 +194,10 @@ bool MainWindow::Evento_aleatorio(){
          x = probabilidad*(RAND_MAX+1)-1;
          return num_rand <= x;
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->pantalla->setVisible(true);
+    ui->widget->setVisible(false);
+}
+
