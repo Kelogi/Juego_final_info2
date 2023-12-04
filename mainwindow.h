@@ -31,9 +31,8 @@ public:
     bool Evento_aleatorio();
 
 private slots:
-    void on_pushButton_clicked();
     void Actualizardatos();
-    void crear_juego();
+    void crearjuego();
 
 private:
 
@@ -53,6 +52,9 @@ private:
 
     //Las rocas se guardan en un vector que contiene objeticos tipo roca
     QVector<roca*>vectorRocas;
+
+    //Las bolaspincho se guardan en un vector que contiene objeticos ballpincho;
+    QVector <ballpincho*>vectorballpincho;
 
     //para el fondo del juego
     QGraphicsPixmapItem *fondo;

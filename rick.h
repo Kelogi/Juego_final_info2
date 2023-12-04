@@ -40,7 +40,7 @@ private:
     bool rick_herido=false;
     bool rick_InRock=false;
     bool rick_cae_rock=false;
-    int vidasRick=5;
+    int vidasRick=8;
     int puntosRick=0;
     int disparosRick=6;
     QPixmap Imagen_rick;

@@ -27,23 +27,23 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>20</y>
+      <x>240</x>
+      <y>100</y>
       <width>221</width>
       <height>171</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QLabel" name="resultado">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>40</y>
-       <width>131</width>
-       <height>61</height>
+       <x>60</x>
+       <y>50</y>
+       <width>101</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="text">
-      <string>Jugar</string>
+      <string>TextLabel</string>
      </property>
     </widget>
    </widget>
@@ -51,7 +51,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>10</y>
+      <y>40</y>
       <width>21</width>
       <height>16</height>
      </rect>
@@ -64,7 +64,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>30</y>
+      <y>60</y>
       <width>21</width>
       <height>16</height>
      </rect>
@@ -77,7 +77,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>50</y>
+      <y>80</y>
       <width>21</width>
       <height>16</height>
      </rect>
@@ -90,7 +90,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>40</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -103,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
+      <y>60</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -116,13 +116,39 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>80</y>
       <width>49</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
      <string>Puntaje:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nive:l</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="nivel">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>

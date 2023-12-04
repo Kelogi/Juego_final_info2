@@ -14,8 +14,8 @@ void ballpincho::ballActiva()
     }
     else{
         t=n*T;
-        posicionX=posXo+70*cos(0.2*t);
-        posicionY=posYo+70*sin(0.2*t);
+        posicionX=posXo+70*cos(0.08*t);
+        posicionY=posYo+70*sin(0.08*t);
         n+=1.0;
         this->setX(posicionX);
         this->setY(posicionY);

@@ -61,14 +61,34 @@ MainWindow::MainWindow(QWidget *parent)
     ActualizarDatos->start(10);
 
     ui->pantalla->setGeometry(0,0,width(),height());
-    ui->pantalla->setVisible(false);
-    ui->vidas->setVisible(false);
-    ui->puntaje->setVisible(false);
-    ui->disparos->setVisible(false);
 
-    ui->label_2->setVisible(false);
-    ui->label_3->setVisible(false);
-    ui->label_4->setVisible(false);
+    ui->pantalla->setVisible(true);
+    ui->widget->setVisible(false);
+
+    ui->vidas->setVisible(true);
+    ui->vidas->setNum(personajeRick->saberVidas());
+    ui->vidas->setStyleSheet("color:white");
+
+    ui->puntaje->setVisible(true);
+    ui->puntaje->setNum(personajeRick->saberPuntos());
+    ui->puntaje->setStyleSheet("color:white");
+
+    ui->disparos->setVisible(true);
+    ui->disparos->setNum(personajeRick->saberDisparos());
+    ui->disparos->setStyleSheet("color:white");
+
+    ui->nivel->setVisible(true);
+    ui->nivel->setNum(1);
+    ui->nivel->setStyleSheet("color:white");
+
+    ui->label_2->setVisible(true);
+    ui->label_2->setStyleSheet("color:white");
+    ui->label_3->setVisible(true);
+    ui->label_3->setStyleSheet("color:white");
+    ui->label_4->setVisible(true);
+    ui->label_4->setStyleSheet("color:white");
+    ui->label_5->setVisible(true);
+    ui->label_5->setStyleSheet("color:white");
 
     //Creamos la escena.
     escena=new  QGraphicsScene;
@@ -80,116 +100,7 @@ MainWindow::MainWindow(QWidget *parent)
     //ui->label->setPixmap(":/imagenes");
     //fondo->setPixmap(img.scaled(img.width(),img.height()));
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
-    personajeRick=new rick();
-
-
-    personajeRick->Seleccion_rick(4);
-    personajeRick->setPos(0,300);
-    escena->addItem(personajeRick);
-    personajeRick->setZValue(1);
-
-
-    ui->pantalla->setScene(escena);
-    set_focus(personajeRick);
-
-
-
-
-    //Se crean los objetos enemyshot y se guardan en el vector.
-    //Ademas se crean los objetos tipo roca, encima de estos estaran los enemyshot
-
-    int posVectorRoca=0;
-    int posVectorPoint=0;
-
-    for(int i=0;i<3;i++){
-        (vectorEnemyshots).push_back(new enemyshot());
-        (vectorEnemyshots)[i]->seleccion_Enemyshot(0);
-        (vectorEnemyshots)[i]->cargarPosicion_Enemyshot(400*(i+1),30);
-        (vectorEnemyshots)[i]->setPos(400*(i+1),30);
-        (vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
-        (vectorEnemyshots)[i]->obtener_personaje(personajeRick);
-        escena->addItem((vectorEnemyshots)[i]);
-        (vectorEnemyshots)[i]->setZValue(1);
-        //Se crea el objeto tipo roca--------------
-        vectorRocas.push_back(new roca());
-        vectorRocas[posVectorRoca]->seleccionar_roca(1);
-        vectorRocas[posVectorRoca]->setPos(400*(i+1)-25,80);
-        vectorRocas[posVectorRoca]->cargar_posicion_rock(400*(i+1)-25,80);
-        vectorRocas[posVectorRoca]->obetener_personaje(personajeRick);
-        escena->addItem(vectorRocas[posVectorRoca]);
-        (vectorRocas)[posVectorRoca]->setZValue(1);
-        posVectorRoca++;
-    }
-
-    //Se crean las rocas que tendra el juego, ademas a traves de la funcion probabilidad vemos si encima de la roca se crea un objeto point
-    int posY_crear_objetos=180;
-    for(int i=0;i<7;i++){
-        vectorRocas.push_back(new roca());
-        vectorRocas[posVectorRoca]->seleccionar_roca(0);
-        vectorRocas[posVectorRoca]->setPos(300*(i+1),posY_crear_objetos);
-        vectorRocas[posVectorRoca]->cargar_posicion_rock(300*(i+1),posY_crear_objetos);
-        vectorRocas[posVectorRoca]->obetener_personaje(personajeRick);
-        escena->addItem(vectorRocas[posVectorRoca]);
-        (vectorRocas)[posVectorRoca]->setZValue(1);
-        posVectorRoca++;
-
-        //nos preguntamos si se crea un objeto point encima de la roca----------------
-        if(Evento_aleatorio()==true){
-            vectorPoints.push_back(new point());
-            vectorPoints[posVectorPoint]->seleccionar_point();
-            vectorPoints[posVectorPoint]->setPos(300*(i+1)+30,posY_crear_objetos-30);
-            vectorPoints[posVectorPoint]->cargar_posicion_point(300*(i+1)+30,posY_crear_objetos-30);
-            vectorPoints[posVectorPoint]->Obtener_escena(escena);
-            vectorPoints[posVectorPoint]->Obtener_personaje_principal(personajeRick);
-            escena->addItem(vectorPoints[posVectorPoint]);
-            (vectorPoints)[posVectorPoint]->setZValue(1);
-            posVectorPoint++;
-        }
-
-        if(posY_crear_objetos==180) posY_crear_objetos=200;
-        else posY_crear_objetos=180;
-
-    }
-
-    //Se crean mas objetos puntos y se guardan en el vector
-    posY_crear_objetos=330;
-    for(int i=0;i<4;i++){
-        vectorPoints.push_back(new point());
-        vectorPoints[posVectorPoint]->seleccionar_point();
-        vectorPoints[posVectorPoint]->setPos(300*(i+1),posY_crear_objetos);
-        vectorPoints[posVectorPoint]->cargar_posicion_point(300*(i+1),posY_crear_objetos);
-        vectorPoints[posVectorPoint]->Obtener_escena(escena);
-        vectorPoints[posVectorPoint]->Obtener_personaje_principal(personajeRick);
-        escena->addItem(vectorPoints[posVectorPoint]);
-        (vectorPoints)[posVectorPoint]->setZValue(1);
-        posVectorPoint++;
-        if(posY_crear_objetos==330) posY_crear_objetos=300;
-        else posY_crear_objetos=330;
-    }
-
-
-    //Se crean los objetos goldenenemy y se guardan en el vector.
-    for(int i=0;i<10;i++){
-        (vectorGoldenenemy).push_back(new goldenenemy());
-        (vectorGoldenenemy)[i]->seleccion_goldenenemy(7);
-        (vectorGoldenenemy)[i]->cargarPosicion_goldenenemy(300*(i+1),270);
-        (vectorGoldenenemy)[i]->setPos(300*(i+1),270);
-        (vectorGoldenenemy)[i]->obtener_personaje_principal(personajeRick);
-        (vectorGoldenenemy)[i]->obtener_escena_Goldenenemy(escena);
-        escena->addItem((vectorGoldenenemy)[i]);
-        (vectorGoldenenemy)[i]->setZValue(1);
-    }
-
-    bolita=new ballpincho();
-    bolita->PosicionInicial(200,200);
-    bolita->obtenerRick(personajeRick);
-    bolita->setPos(200,200);
-    escena->addItem(bolita);
-
-
-    escena->addItem(fondo);
-    fondo->setPos(0,0);
-    fondo->setZValue(0);
+    crearjuego();
 
 }
 
@@ -213,37 +124,141 @@ bool MainWindow::Evento_aleatorio(){
          return num_rand <= x;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    ui->pantalla->setVisible(true);
-    ui->widget->setVisible(false);
-
-    ui->vidas->setVisible(true);
-    ui->vidas->setNum(personajeRick->saberVidas());
-    ui->vidas->setStyleSheet("color:white");
-
-    ui->puntaje->setVisible(true);
-    ui->puntaje->setNum(personajeRick->saberPuntos());
-    ui->puntaje->setStyleSheet("color:white");
-
-    ui->disparos->setVisible(true);
-    ui->disparos->setNum(personajeRick->saberDisparos());
-    ui->disparos->setStyleSheet("color:white");
-
-    ui->label_2->setVisible(true);
-    ui->label_2->setStyleSheet("color:white");
-    ui->label_3->setVisible(true);
-    ui->label_3->setStyleSheet("color:white");
-    ui->label_4->setVisible(true);
-    ui->label_4->setStyleSheet("color:white");
-
-
-}
 
 void MainWindow::Actualizardatos()
 {
     ui->vidas->setNum(personajeRick->saberVidas());
     ui->puntaje->setNum(personajeRick->saberPuntos());
     ui->disparos->setNum(personajeRick->saberDisparos());
+
+    //verificar si esta en el nivel 2
+    if(personajeRick->saberDatos(2)>=5000) ui->nivel->setNum(2);
+
+    //verificar si pierde
+    if(personajeRick->saberVidas()==0){
+        ui->pantalla->setVisible(false);
+        ui->widget->setVisible(true);
+        ui->resultado->setVisible(true);
+        ui->resultado->setText("¡GAME OVER!");
+    }
+    //verificar si Rick gana
+    if(personajeRick->saberDatos(2)>=10100){
+        ui->pantalla->setVisible(false);
+        ui->widget->setVisible(true);
+        ui->resultado->setVisible(true);
+        ui->resultado->setText("¡Bien jugado, GANASTE!");
+    }
+}
+
+void MainWindow::crearjuego()
+{
+    personajeRick=new rick();
+
+
+    personajeRick->Seleccion_rick(4);
+    personajeRick->setPos(0,300);
+    escena->addItem(personajeRick);
+    personajeRick->setZValue(1);
+    ui->pantalla->setScene(escena);
+    set_focus(personajeRick);
+
+
+
+
+    //Se crean los objetos enemyshot y se guardan en el vector.
+    //Ademas se crean los objetos tipo roca, encima de estos estaran los enemyshot
+
+    int posVectorRoca=0;
+    int posVectorPoint=0;
+
+    for(int i=0;i<23;i++){
+        (vectorEnemyshots).push_back(new enemyshot());
+        (vectorEnemyshots)[i]->seleccion_Enemyshot(0);
+        (vectorEnemyshots)[i]->cargarPosicion_Enemyshot(440*(i+1),30);
+        (vectorEnemyshots)[i]->setPos(440*(i+1),30);
+        (vectorEnemyshots)[i]->obtener_Escena_Enemyshot(escena);
+        (vectorEnemyshots)[i]->obtener_personaje(personajeRick);
+        escena->addItem((vectorEnemyshots)[i]);
+        (vectorEnemyshots)[i]->setZValue(1);
+        //Se crea el objeto tipo roca--------------
+        vectorRocas.push_back(new roca());
+        vectorRocas[posVectorRoca]->seleccionar_roca(1);
+        vectorRocas[posVectorRoca]->setPos(440*(i+1)-25,80);
+        vectorRocas[posVectorRoca]->cargar_posicion_rock(440*(i+1)-25,80);
+        vectorRocas[posVectorRoca]->obetener_personaje(personajeRick);
+        escena->addItem(vectorRocas[posVectorRoca]);
+        (vectorRocas)[posVectorRoca]->setZValue(1);
+        posVectorRoca++;
+    }
+
+    //Se crean las rocas que tendra el juego, ademas a traves de la funcion probabilidad vemos si encima de la roca se crea un objeto point
+    int posY_crear_objetos=180;
+    for(int i=0;i<19;i++){
+        vectorRocas.push_back(new roca());
+        vectorRocas[posVectorRoca]->seleccionar_roca(0);
+        vectorRocas[posVectorRoca]->setPos(540*(i+1),posY_crear_objetos);
+        vectorRocas[posVectorRoca]->cargar_posicion_rock(540*(i+1),posY_crear_objetos);
+        vectorRocas[posVectorRoca]->obetener_personaje(personajeRick);
+        escena->addItem(vectorRocas[posVectorRoca]);
+        (vectorRocas)[posVectorRoca]->setZValue(1);
+        posVectorRoca++;
+
+        //nos preguntamos si se crea un objeto point encima de la roca----------------
+        if(Evento_aleatorio()==true){
+            vectorPoints.push_back(new point());
+            vectorPoints[posVectorPoint]->seleccionar_point();
+            vectorPoints[posVectorPoint]->setPos(540*(i+1)+30,posY_crear_objetos-30);
+            vectorPoints[posVectorPoint]->cargar_posicion_point(540*(i+1)+30,posY_crear_objetos-30);
+            vectorPoints[posVectorPoint]->Obtener_escena(escena);
+            vectorPoints[posVectorPoint]->Obtener_personaje_principal(personajeRick);
+            escena->addItem(vectorPoints[posVectorPoint]);
+            (vectorPoints)[posVectorPoint]->setZValue(1);
+            posVectorPoint++;
+        }
+
+        if(posY_crear_objetos==180) posY_crear_objetos=200;
+        else posY_crear_objetos=180;
+
+    }
+
+    //Se crean mas objetos puntos y se guardan en el vector
+    posY_crear_objetos=330;
+    for(int i=0;i<18;i++){
+        vectorPoints.push_back(new point());
+        vectorPoints[posVectorPoint]->seleccionar_point();
+        vectorPoints[posVectorPoint]->setPos(550*(i+1),posY_crear_objetos);
+        vectorPoints[posVectorPoint]->cargar_posicion_point(550*(i+1),posY_crear_objetos);
+        vectorPoints[posVectorPoint]->Obtener_escena(escena);
+        vectorPoints[posVectorPoint]->Obtener_personaje_principal(personajeRick);
+        escena->addItem(vectorPoints[posVectorPoint]);
+        (vectorPoints)[posVectorPoint]->setZValue(1);
+        posVectorPoint++;
+        if(posY_crear_objetos==330) posY_crear_objetos=300;
+        else posY_crear_objetos=330;
+    }
+
+
+    //Se crean los objetos goldenenemy y se guardan en el vector.
+    for(int i=0;i<23;i++){
+        (vectorGoldenenemy).push_back(new goldenenemy());
+        (vectorGoldenenemy)[i]->seleccion_goldenenemy(7);
+        (vectorGoldenenemy)[i]->cargarPosicion_goldenenemy(440*(i+1),270);
+        (vectorGoldenenemy)[i]->setPos(440*(i+1),270);
+        (vectorGoldenenemy)[i]->obtener_personaje_principal(personajeRick);
+        (vectorGoldenenemy)[i]->obtener_escena_Goldenenemy(escena);
+        escena->addItem((vectorGoldenenemy)[i]);
+        (vectorGoldenenemy)[i]->setZValue(1);
+    }
+
+    //se crean los pinchos para el nivel 2
+
+    for(int i=0;i<10;i++){
+        vectorballpincho.push_back(new ballpincho());
+        (vectorballpincho)[i]->obtenerRick(personajeRick);
+        (vectorballpincho)[i]->PosicionInicial(500*(i+11),210);
+        (vectorballpincho)[i]->setPos(500*(i+11),210);
+         escena->addItem(vectorballpincho[i]);
+    }
+
 }
 
