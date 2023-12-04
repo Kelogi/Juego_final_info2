@@ -181,8 +181,9 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     bolita=new ballpincho();
-    bolita->PosicionInicial(500,500);
-    bolita->setPos(500,500);
+    bolita->PosicionInicial(200,200);
+    bolita->obtenerRick(personajeRick);
+    bolita->setPos(200,200);
     escena->addItem(bolita);
 
 

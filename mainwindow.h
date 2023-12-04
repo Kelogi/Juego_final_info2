@@ -33,6 +33,7 @@ public:
 private slots:
     void on_pushButton_clicked();
     void Actualizardatos();
+    void crear_juego();
 
 private:
 

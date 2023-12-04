@@ -11,9 +11,9 @@ class ballpincho: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 private slots:
     void ballActiva();
+    void Actualizar_Rick_No_herido();
 public:
     ballpincho();
-
     void PosicionInicial(int x, int y);
     void obtenerRick(rick *personaje);
 
