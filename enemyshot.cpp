@@ -8,12 +8,13 @@ void enemyshot::EnemyshotActivo()
         srand(time(NULL));
         int Vx_azar=20+rand()%(60-20);
         int Vy_azar=20+rand()%(60-20);
-         //Se escogio en el sprite 3 el enemyshot siempre lanza una bala
+         //Se escogio en el sprite 4 el enemyshot siempre lanza una bala.
         diamondEnemyShot=new diamante();
         diamondEnemyShot->Cargar_Vxo_movimiento(-Vx_azar);
         diamondEnemyShot->Cargar_Vyo_movimiento(Vy_azar);
 
         diamondEnemyShot->seleccion_diamante(0);
+        //quien dispara es la clase EnemyShot.
         diamondEnemyShot->cargar_quien_dispara(false);
         diamondEnemyShot->cargarPos_Inicial(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);
         diamondEnemyShot->setPos(this->posicionX_Enemyshot(),this->posicionY_Enemyshot()+5);

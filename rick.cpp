@@ -2,28 +2,37 @@
 
 void rick::CicloAutomatico_Rick()
 {
-    //Aplicar las leyes de la dinamica al personaje Rick en direccion del eje Y
+    //Aplicar las leyes de la dinamica al personaje Rick
 
     if(this->saberRick_herido()==false and this->saber_Rick_in_Rock()==false){
         if(salto==true){
             t=k*n*TY;
 
+            //a traves del parametro t, se obtiene la nueva posion en y del movmiento
             posicion_Y=yo_Salto-Vyo*t+0.5*g*t*t;
 
-
+            //si la fuerza en x!=0, Rick previamente tomo impulso->trayectoria parabolica
             if(saberDatos(0)!=0)Posicion_X=xo_Salto+Vxo*t;
 
+            /*si la posicion en Y del movmiento (de caida libre o parabolico) es menor que 300
+            se posiciona a Rick en un punto de la trayectoria.
+            */
             if(posicion_Y<=300){
                 this->setY(posicion_Y);
                 if(this->saberDatos(0)!=0)this->setX(Posicion_X);
 
              }
+
+            /*Si rick esta saltando pero la posicion en Y es mayor que 300
+            Rick esta en el sulo*/
             else {
                 salto=false;
                 posicion_Y=300;
                 this->setY(300);
+                //posicion final en x, del movimiento.
                 this->setX(Posicion_X);
                 n=0.0;
+                //despues de saltar rick permanece quieto
                 this->actualizarFuerzas(0,0);
             }
             n+=1.0;
@@ -191,13 +200,3 @@ void rick::recibir_Vyo(int Vy)
 {
     Vyo=Vy;
 }
-
-/*void rick::actualizar_rick_cae(bool cae)
-{
-    rick_cae_rock=cae;
-}
-
-bool rick::saber_rick_cae()
-{
-    return rick_cae_rock;
-}*/

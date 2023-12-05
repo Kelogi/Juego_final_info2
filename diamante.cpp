@@ -15,7 +15,7 @@ void diamante::CicloAutomatico_diamante()
         }
     }
     //preguntarnos si el diamante colisiona con rick y ademas rick no esta herido.
-    if(personaje_principal->collidesWithItem(this) and personaje_principal->saberRick_herido()==false){
+    if(personaje_principal->collidesWithItem(this) and personaje_principal->saberRick_herido()==false and quienDispara==false){
         personaje_principal->actualizarVidas(personaje_principal->saberVidas()-1);
         personaje_principal->actualizarFuerzas(0,0);
         personaje_principal->Seleccion_rick(9);

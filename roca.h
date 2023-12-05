@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
-#include <QGraphicsScene>
 #include "rick.h"
 #include <QTimer>
 
@@ -15,10 +14,12 @@ private slots:
     void rickinRock();
 
 public:
+
     roca();
     void seleccionar_roca(int tipo);
     void obetener_personaje(rick *personaje);
     void cargar_posicion_rock(int x, int y);
+
 private:
     QPixmap Imagen_rocas;
     QPixmap Imagen_roca_ind;

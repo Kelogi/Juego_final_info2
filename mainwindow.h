@@ -29,10 +29,11 @@ public:
     ~MainWindow();
 
     bool Evento_aleatorio();
+    void crearjuego();
 
 private slots:
+
     void Actualizardatos();
-    void crearjuego();
 
 private:
 
@@ -59,7 +60,7 @@ private:
     //para el fondo del juego
     QGraphicsPixmapItem *fondo;
 
-    ballpincho *bolita;
+
 
 
 };

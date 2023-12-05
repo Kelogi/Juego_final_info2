@@ -5,7 +5,6 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
-#include <QGraphicsScene>
 #include "rick.h"
 
 class point: public QObject, public QGraphicsPixmapItem

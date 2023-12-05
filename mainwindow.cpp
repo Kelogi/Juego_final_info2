@@ -93,12 +93,9 @@ MainWindow::MainWindow(QWidget *parent)
     //Creamos la escena.
     escena=new  QGraphicsScene;
     fondo = new QGraphicsPixmapItem;
-    //QPixmap img(":/imagenes/fondo.png");
     QImage p(":/imagenes/fondo.png");
     QBrush img(p);
     ui->pantalla->setBackgroundBrush(img);
-    //ui->label->setPixmap(":/imagenes");
-    //fondo->setPixmap(img.scaled(img.width(),img.height()));
     escena->setSceneRect(0,0,ui->pantalla->width()-2,ui->pantalla->height()-2);
     crearjuego();
 
